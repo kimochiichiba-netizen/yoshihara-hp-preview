@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="UTF-8">
+<title>株式会社吉原 様｜機能別 料金＆メリット表（営業資料）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@500;600;700&family=Zen+Maru+Gothic:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root{--ac:#1c5fa8;--ac-d:#16497f;--ink:#1a1c1e;--sub:#6a7079;--line:#e3e5e8;--soft:#f4f6f8;--stroke:#c4d2e2;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"Noto Sans JP",sans-serif;color:var(--ink);line-height:1.8;font-size:13px;-webkit-font-smoothing:antialiased;background:#5b6470;}
+  @page{size:A4;margin:0;}
+  .page{position:relative;width:210mm;min-height:297mm;background:#fff;margin:0 auto;padding:18mm 16mm 16mm;overflow:hidden;}
+  @media screen{.page{margin:14px auto;box-shadow:0 10px 40px rgba(0,0,0,.3);}}
+  @media print{.page{margin:0;box-shadow:none;page-break-after:always;}.page:last-child{page-break-after:auto;}}
+  .en{font-family:"Oswald",sans-serif;}.ac{color:var(--ac);}
+  .bigtitle{font-family:"Oswald",sans-serif;font-weight:700;line-height:.9;letter-spacing:.01em;font-size:58px;color:transparent;-webkit-text-stroke:1.4px var(--stroke);text-transform:uppercase;}
+  .bigtitle .fill{color:var(--ac);-webkit-text-stroke:0;}
+  .secjp{font-family:"Zen Maru Gothic";font-weight:900;font-size:18px;letter-spacing:.04em;margin-top:6px;}
+  .secjp .ac{color:var(--ac);}
+  .shead{margin-bottom:18px;}
+  .lead{font-size:12.5px;color:#3a3f46;line-height:1.9;}
+
+  /* 表紙 */
+  .cover{display:flex;flex-direction:column;justify-content:center;background:#101f33;color:#fff;}
+  .cover .wm{position:absolute;right:-8mm;bottom:-10mm;font-family:"Oswald";font-weight:700;font-size:170px;color:rgba(255,255,255,.05);pointer-events:none;}
+  .cover .kicker{font-family:"Oswald";font-size:13px;letter-spacing:.3em;color:#7fb0e6;}
+  .cover h1{font-family:"Zen Maru Gothic";font-weight:900;font-size:36px;line-height:1.45;margin:14px 0 8px;}
+  .cover h1 .ac{color:#7fb0e6;}
+  .cover .sub{font-size:14px;color:rgba(255,255,255,.86);line-height:1.8;margin-bottom:22px;}
+  .cover .to{font-size:21px;font-family:"Zen Maru Gothic";font-weight:700;border-top:1px solid rgba(255,255,255,.2);padding-top:22px;}
+  .cover .to small{display:block;font-size:11px;color:rgba(255,255,255,.6);letter-spacing:.1em;font-family:"Oswald";margin-bottom:6px;}
+  .cover .from{position:absolute;left:16mm;bottom:15mm;font-size:11.5px;color:rgba(255,255,255,.7);line-height:1.8;}
+  .cover .from b{color:#fff;font-size:13.5px;font-family:"Zen Maru Gothic";font-weight:700;}
+  .cover .date{position:absolute;right:16mm;bottom:15mm;font-family:"Oswald";font-size:12px;letter-spacing:.1em;color:rgba(255,255,255,.7);text-align:right;}
+
+  /* 考え方 */
+  .idea{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:4px 0 22px;}
+  .idea .i{border:1px solid var(--line);border-top:3px solid var(--ac);padding:14px 15px;}
+  .idea .i .n{font-family:"Oswald";font-weight:700;font-size:12px;color:var(--ac);letter-spacing:.08em;margin-bottom:5px;}
+  .idea .i h3{font-size:13.5px;font-weight:700;margin-bottom:4px;}
+  .idea .i p{font-size:11.5px;color:#3a3f46;line-height:1.7;}
+
+  /* 土台カード */
+  .basecard{border:1px solid var(--line);border-left:4px solid var(--ac);padding:18px 20px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;}
+  .basecard .bx h3{font-size:17px;font-weight:700;margin-bottom:6px;}
+  .basecard .bx p{font-size:12px;color:#3a3f46;line-height:1.75;}
+  .basecard .price{text-align:right;white-space:nowrap;}
+  .basecard .price .lab{font-size:10px;color:var(--sub);font-family:"Oswald";letter-spacing:.08em;}
+  .basecard .price .normal{font-size:13px;color:var(--sub);text-decoration:line-through;}
+  .basecard .price .reco{font-family:"Oswald";font-weight:700;font-size:24px;color:var(--ac);}
+  .basecard .price .reco small{font-family:"Noto Sans JP";font-size:12px;color:var(--sub);font-weight:500;}
+
+  /* 料金テーブル */
+  .ptable{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px;}
+  .ptable th,.ptable td{border:1px solid var(--line);padding:11px 12px;vertical-align:top;text-align:left;}
+  .ptable thead th{background:var(--ink);color:#fff;font-weight:700;text-align:center;font-size:12px;}
+  .ptable .fn{width:34mm;}
+  .ptable .fn b{font-size:13.5px;display:block;}
+  .ptable .fn .en{font-size:9px;color:var(--sub);letter-spacing:.1em;}
+  .ptable .col-n{width:22mm;text-align:center;}
+  .ptable .col-r{width:24mm;text-align:center;background:#f1f6fc;}
+  .ptable .normal{color:var(--sub);text-decoration:line-through;font-family:"Oswald";font-weight:600;font-size:13px;}
+  .ptable .reco{font-family:"Oswald";font-weight:700;font-size:16px;color:var(--ac);}
+  .ptable .reco small,.ptable .normal small{font-family:"Noto Sans JP";font-size:10px;color:var(--sub);font-weight:500;}
+  .ptable .merit{font-size:11.5px;color:#3a3f46;line-height:1.7;}
+  .ptable td.sumlab{text-align:right;font-weight:700;background:var(--soft);}
+  .ptable .reco-big{font-size:17px;}
+
+  .tnote{font-size:10.5px;color:var(--sub);margin-top:10px;line-height:1.7;}
+  .tnote b{color:var(--ac);}
+
+  /* 月額テーブル（裏側） */
+  .mtable{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px;}
+  .mtable th,.mtable td{border:1px solid var(--line);padding:8px 11px;vertical-align:top;text-align:left;}
+  .mtable thead th{background:var(--ink);color:#fff;font-weight:700;text-align:center;font-size:12px;}
+  .mtable .fn{width:40mm;}
+  .mtable .fn b{font-size:13px;display:block;}
+  .mtable .ini{width:24mm;text-align:center;font-family:"Oswald";font-weight:700;font-size:13px;color:var(--ink);}
+  .mtable .mo{width:24mm;text-align:center;font-family:"Oswald";font-weight:700;font-size:14px;color:var(--ac);}
+  .mtable .mo small,.mtable .ini small{font-family:"Noto Sans JP";font-size:9.5px;color:var(--sub);font-weight:500;display:block;}
+  .mtable .merit{font-size:11.5px;color:#3a3f46;line-height:1.65;}
+
+  /* おすすめパック */
+  .packs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px;}
+  .pack{border:1px solid var(--line);padding:16px 16px 18px;text-align:center;}
+  .pack.reco{border:2px solid var(--ac);position:relative;}
+  .pack.reco .tag{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--ac);color:#fff;font-size:10px;font-weight:700;padding:2px 12px;}
+  .pack .name{font-family:"Zen Maru Gothic";font-weight:900;font-size:20px;margin-bottom:8px;}
+  .pack .price{font-family:"Oswald";font-weight:700;font-size:19px;color:var(--ac);}
+  .pack .price small{font-family:"Noto Sans JP";font-size:11px;color:var(--sub);}
+  .pack .mo{font-size:11.5px;color:var(--sub);margin:3px 0 10px;}
+  .pack .desc{font-size:11px;color:#3a3f46;line-height:1.65;text-align:left;border-top:1px solid var(--line);padding-top:10px;}
+
+  /* おすすめパッケージ 比較表 */
+  .cmp{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px;}
+  .cmp th,.cmp td{border:1px solid var(--line);padding:4px 8px;text-align:center;}
+  .cmp thead th{background:var(--ink);color:#fff;font-family:"Zen Maru Gothic";font-weight:900;font-size:15px;}
+  .cmp thead th.reco{background:var(--ac);}
+  .cmp thead th small{display:block;font-family:"Noto Sans JP";font-size:9px;font-weight:500;opacity:.88;}
+  .cmp td.feat{text-align:left;font-weight:700;background:var(--soft);width:62mm;font-size:11.5px;}
+  .cmp .yes{color:var(--ac);font-weight:700;font-size:15px;}
+  .cmp .no{color:#cfd6dd;}
+  .cmp td.reco-col{background:#f1f6fc;}
+  .cmp tr.sum td{font-family:"Oswald";font-weight:700;font-size:14px;}
+  .cmp tr.sum td.feat{font-family:"Noto Sans JP";font-size:11.5px;}
+  .cmp tr.sum .p{color:var(--ac);font-size:15px;}
+  .cmp tr.who td{font-size:10.5px;font-weight:700;color:#3a3f46;background:#fafbfc;}
+  .cmp tr.who td.reco-col{color:var(--ac-d);}
+  .stepup{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;}
+  .stepup .su{border:1px solid var(--line);border-left:3px solid var(--ac);padding:12px 14px;}
+  .stepup .su .h{font-family:"Oswald";font-size:11px;font-weight:700;color:var(--ac);letter-spacing:.06em;margin-bottom:4px;}
+  .stepup .su p{font-size:11.5px;color:#3a3f46;line-height:1.7;}
+  .stepup .su b{color:var(--ink);}
+
+  .closing{margin-top:12px;background:var(--ink);color:#fff;padding:16px 20px;}
+  .closing h3{font-family:"Zen Maru Gothic";font-weight:900;font-size:17px;margin-bottom:7px;}
+  .closing h3 .ac{color:#7fb0e6;}
+  .closing p{font-size:12px;color:rgba(255,255,255,.85);line-height:1.8;}
+
+  .foot{position:absolute;left:16mm;right:16mm;bottom:10mm;display:flex;justify-content:space-between;font-size:10px;color:var(--sub);border-top:1px solid var(--line);padding-top:8px;}
+  .pnum{font-family:"Oswald";}
+</style>
+</head>
+<body>
+
+<!-- ===== 表紙 ===== -->
+<section class="page cover">
+  <div class="wm">MENU</div>
+  <div class="kicker">PRICE &amp; MERIT / 機能別 料金表</div>
+  <h1>必要な機能だけ、選べます。<br><span class="ac">足すごとの「価格」と「会社のメリット」</span>を<br>一覧にしました。</h1>
+  <div class="sub">「この機能を付けるといくらか」「付けると会社に何が起きるか」をセットでご覧いただけます。<br>まとめてのご導入（竹プラン）なら、単品合計よりお得になります。</div>
+  <div class="to"><small>FOR</small>株式会社吉原 御中</div>
+  <div class="from"><b>株式会社気持ち市場</b><br>大分市都町／AI業務自動化・Web制作<br>kimochi.ichiba@gmail.com</div>
+  <div class="date">2026.06.09<br>ご提案</div>
+</section>
+
+<!-- ===== 考え方 ＋ 土台 ===== -->
+<section class="page">
+  <div class="shead"><div class="bigtitle"><span class="fill">B</span>ASE</div><div class="secjp">まずは<span class="ac">土台</span>（基本のホームページ）</div></div>
+
+  <div class="idea">
+    <div class="i"><div class="n">考え方 01</div><h3>必要な分だけ</h3><p>全部を一度に作る必要はありません。土台＋必要な機能だけ選べます。</p></div>
+    <div class="i"><div class="n">考え方 02</div><h3>価格とメリットをセットで</h3><p>各機能に「いくらか」と「会社に何が起きるか」を併記。判断しやすく。</p></div>
+    <div class="i"><div class="n">考え方 03</div><h3>まとめるとお得</h3><p>6機能をまとめた「竹プラン」は、単品合計よりぐっとお得です。</p></div>
+  </div>
+
+  <div class="basecard">
+    <div class="bx">
+      <h3>基本コーポレートサイト（土台）</h3>
+      <p>トップ・会社案内・製品紹介・施工事例・採用・お問い合わせ＋SEO基盤＋スマホ最適化＋プライバシーポリシー。<br><b>メリット：</b>「外から見て会社が光る」。新規取引先・求職者の第一印象が整い、信頼の入口になります。</p>
+    </div>
+    <div class="price">
+      <div class="lab">通常価格</div>
+      <div class="normal">50〜70万円</div>
+      <div class="lab" style="margin-top:6px;">ご紹介特別価格</div>
+      <div class="reco">45〜60<small>万円</small></div>
+    </div>
+  </div>
+
+  <div class="closing" style="margin-top:24px;">
+    <h3>この土台に、次ページの<span class="ac">便利機能</span>を足していきます</h3>
+    <p>土台だけでも公開できます。そこへ「お客様が使える機能」を足すほど、問い合わせ・見積り・採用の入口が広がります。各機能の価格とメリットは次ページの一覧でご確認ください。</p>
+  </div>
+
+  <div class="foot"><span class="en">YOSHIHARA × KIMOCHI ICHIBA</span><span class="pnum">02</span></div>
+</section>
+
+<!-- ===== 便利機能 料金＆メリット ===== -->
+<section class="page">
+  <div class="shead"><div class="bigtitle"><span class="fill">O</span>PTIONS</div><div class="secjp">お客様向け <span class="ac">便利機能</span>（料金＆メリット）</div></div>
+  <p class="lead" style="margin-bottom:12px;">必要な機能を1つから選べます。<b>ご紹介特別価格</b>は、今回ご縁をいただいた特別価格です。</p>
+
+  <table class="ptable">
+    <thead>
+      <tr><th>機能</th><th class="col-n">通常価格</th><th class="col-r">ご紹介価格</th><th>会社へのメリット（なぜ効くか）</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="fn"><b>① 製品スペック検索</b><span class="en">FIND</span></td>
+        <td class="col-n"><span class="normal">15<small>万</small></span></td>
+        <td class="col-r"><span class="reco">12<small>万</small></span></td>
+        <td class="merit">用途・規格・寸法で目的の製品に最短到達。「探せない」ストレスでの離脱を防ぎ、問い合わせ前の取りこぼしを減らします。</td>
+      </tr>
+      <tr>
+        <td class="fn"><b>② かんたん数量計算</b><span class="en">ESTIMATE</span></td>
+        <td class="col-n"><span class="normal">12<small>万</small></span></td>
+        <td class="col-r"><span class="reco">10<small>万</small></span></td>
+        <td class="merit">延長・面積を入れると必要数の目安が出る。お客様が自分で試算→そのまま見積り依頼へ。電話での概算問い合わせの手間も減ります。</td>
+      </tr>
+      <tr>
+        <td class="fn"><b>③ まとめて見積りカート</b><span class="en">QUOTE LIST</span></td>
+        <td class="col-n"><span class="normal">15<small>万</small></span></td>
+        <td class="col-r"><span class="reco">12<small>万</small></span></td>
+        <td class="merit">複数製品をリストに溜めて一括で見積り依頼。「U字溝＋ふた＋カルバート」等の複数注文が1回の問い合わせに＝客単価UP・取りこぼし防止。</td>
+      </tr>
+      <tr>
+        <td class="fn"><b>④ 施工エリアマップ</b><span class="en">AREA</span></td>
+        <td class="col-n"><span class="normal">12<small>万</small></span></td>
+        <td class="col-r"><span class="reco">10<small>万</small></span></td>
+        <td class="merit">大分県内の実績を地域・工種で表示。「近くで実績がある」が一目で伝わり受注の安心材料に。地名入りで検索（SEO）にも効きます。</td>
+      </tr>
+      <tr>
+        <td class="fn"><b>⑤ 資料ダウンロード</b><span class="en">DOWNLOAD</span></td>
+        <td class="col-n"><span class="normal">20<small>万</small></span></td>
+        <td class="col-r"><span class="reco">16<small>万</small></span></td>
+        <td class="merit">カタログ・CADを登録制でDL。<b>ダウンロードした設計者が見込み客リストとして自動で貯まる</b>＝営業に回せる資産になります。</td>
+      </tr>
+      <tr>
+        <td class="fn"><b>⑥ AI製品コンシェルジュ</b><span class="en">AI</span></td>
+        <td class="col-n"><span class="normal">20<small>万</small></span></td>
+        <td class="col-r"><span class="reco">16<small>万</small></span></td>
+        <td class="merit">用途を選ぶと最適製品を提案する24時間の"製品相談係"。何を選べばよいか分からないお客様を、迷わせず問い合わせまで誘導します。</td>
+      </tr>
+      <tr>
+        <td class="sumlab" colspan="1">6機能 合計</td>
+        <td class="col-n"><span class="normal" style="font-size:14px;">94<small>万</small></span></td>
+        <td class="col-r"><span class="reco reco-big">76<small>万</small></span></td>
+        <td class="merit"><b>まとめて＝竹プランなら、さらにお得（次ページ）。</b>単品で足すより、6機能セットの方が割安になります。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="tnote">※価格はすべて<b>税別・概算</b>です。実装内容・連携先により前後します。正式なお見積りは内容確定のうえご提示します。<br>※「ご紹介特別価格」は、お付き合いのご縁につき今回ご提示する特別価格です。</p>
+
+  <div class="foot"><span class="en">YOSHIHARA × KIMOCHI ICHIBA</span><span>便利機能メニュー</span><span class="pnum">03</span></div>
+</section>
+
+<!-- ===== 裏側（月額）＋ おすすめパック ===== -->
+<section class="page">
+  <div class="shead"><div class="bigtitle"><span class="fill">G</span>ROW</div><div class="secjp">裏側で<span class="ac">育てる機能</span>（月額で増やす）</div></div>
+  <p class="lead" style="margin-bottom:12px;">「作って終わり」にせず、月額で問い合わせを増やし続ける仕組みです。サーバーや各サービスの契約・設定が要るため、導入時にご相談しながら進めます。</p>
+
+  <table class="mtable">
+    <thead>
+      <tr><th>機能</th><th class="ini" style="color:#fff;">初期</th><th class="mo" style="color:#fff;">月額</th><th>会社へのメリット</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="fn"><b>問い合わせ自動通知＋一次自動返信</b></td><td class="ini">10<small>万</small></td><td class="mo">0.5〜1万<small>／月</small></td><td class="merit">フォーム送信を即メール／LINE通知。自動で受付返信＝取りこぼしゼロ・即レスで受注率UP。</td></tr>
+      <tr><td class="fn"><b>管理画面（自分で更新／CMS）</b></td><td class="ini">25〜50<small>万</small></td><td class="mo">1〜3万<small>／月</small></td><td class="merit">施工事例・お知らせ・製品を専門知識なしで追加・修正。更新のたびに費用が出ない＝事例が積み上がる。</td></tr>
+      <tr><td class="fn"><b>リード管理（DL客の見える化）</b></td><td class="ini">15<small>万</small></td><td class="mo">1〜2万<small>／月</small></td><td class="merit">誰がどの資料をDLしたかを記録。設計段階の見込み客を営業フォローへ＝受注の取りこぼし防止。</td></tr>
+      <tr><td class="fn"><b>MEO＋ライトSEO</b></td><td class="ini">15<small>万</small></td><td class="mo">3〜5万<small>／月</small></td><td class="merit">「大分 側溝／擁壁」等で検索上位を狙う。競合が薄く、広告なしで問い合わせ流入を増やせる固い柱。</td></tr>
+      <tr><td class="fn"><b>採用特設ページ</b></td><td class="ini">25〜40<small>万</small></td><td class="mo">1〜2万<small>／月</small></td><td class="merit">人手不足対策。社員の声・働く環境で若手の応募の母集団形成。求人媒体費の削減にも。</td></tr>
+      <tr><td class="fn"><b>月額保守（基本・必須）</b></td><td class="ini">－</td><td class="mo">0.5〜1.1万<small>／月</small></td><td class="merit">サーバー・ドメイン・SSL・セキュリティ更新・軽微な修正対応。安全に公開し続けるための土台。</td></tr>
+    </tbody>
+  </table>
+
+  <div class="closing">
+    <h3>これらは<span class="ac">竹のあと、月額で1つずつ足せます</span></h3>
+    <p>裏側の機能は最初から全部でなくて大丈夫。まず竹で公開し、効くものから（例：自動通知 → 管理画面 → 採用）足していけます。次のページに、梅・竹・松で「何が入るか」の一覧表があります。</p>
+  </div>
+
+  <div class="foot"><span class="en">YOSHIHARA × KIMOCHI ICHIBA</span><span>裏側機能</span><span class="pnum">04</span></div>
+</section>
+
+<!-- ===== おすすめパッケージ（比較表） ===== -->
+<section class="page">
+  <div class="shead"><div class="bigtitle"><span class="fill">P</span>ACKAGE</div><div class="secjp">おすすめ<span class="ac">パッケージ</span>（何が入るか一覧）</div></div>
+  <p class="lead" style="margin-bottom:8px;">「どれを選べばいいか」が一目で分かる比較表です。<b>本命は竹</b>。まず竹で公開 → 必要に応じて松へ、が王道です。</p>
+
+  <table class="cmp">
+    <thead>
+      <tr><th class="feat" style="text-align:left;">含まれるもの</th><th>梅<small>最小で公開</small></th><th class="reco">竹<small>本命・おすすめ</small></th><th>松<small>営業＋採用まで</small></th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="feat">基本サイト（土台）</td><td class="yes">✓</td><td class="reco-col yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td class="feat">① 製品スペック検索</td><td class="no">—</td><td class="reco-col yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td class="feat">② かんたん数量計算</td><td class="no">—</td><td class="reco-col yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td class="feat">③ まとめて見積りカート</td><td class="no">—</td><td class="reco-col yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td class="feat">④ 施工エリアマップ</td><td class="no">—</td><td class="reco-col yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td class="feat">⑤ 資料ダウンロード</td><td class="no">—</td><td class="reco-col yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td class="feat">⑥ AI製品コンシェルジュ</td><td class="no">—</td><td class="reco-col yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td class="feat">MEO（大分で検索上位対策）</td><td class="no">—</td><td class="reco-col yes">✓</td><td class="yes">✓</td></tr>
+      <tr><td class="feat">問い合わせ自動通知</td><td class="no">—</td><td class="reco-col no">—</td><td class="yes">✓</td></tr>
+      <tr><td class="feat">管理画面（自分で更新）</td><td class="no">—</td><td class="reco-col no">—</td><td class="yes">✓</td></tr>
+      <tr><td class="feat">リード管理</td><td class="no">—</td><td class="reco-col no">—</td><td class="yes">✓</td></tr>
+      <tr><td class="feat">採用特設ページ</td><td class="no">—</td><td class="reco-col no">—</td><td class="yes">✓</td></tr>
+      <tr class="sum"><td class="feat">初期費用（税別・概算）</td><td class="p">48〜68万</td><td class="reco-col p">98〜148万</td><td class="p">180〜280万</td></tr>
+      <tr class="sum"><td class="feat">月額</td><td>0.5〜1.1万</td><td class="reco-col">3〜5万</td><td>8〜15万</td></tr>
+      <tr class="who"><td class="feat">こんな会社に</td><td>まず公開したい</td><td class="reco-col">問い合わせを増やしたい</td><td>営業・採用も強化したい</td></tr>
+    </tbody>
+  </table>
+
+  <div class="stepup">
+    <div class="su"><div class="h">梅 → 竹 で増えること</div><p><b>「見せるだけ」から「問い合わせが増える」へ。</b>検索・数量計算・見積りカート・資料DL・AI相談・MEO（大分で検索上位）が加わり、お客様が自分で動いて問い合わせまで進みます。</p></div>
+    <div class="su"><div class="h">竹 → 松 で増えること</div><p><b>「増やす」から「自社で回す＋採用」へ。</b>自動通知・管理画面（自分で更新）・リード管理・採用ページが加わり、運用の内製化と人手不足対策まで広がります。</p></div>
+  </div>
+
+  <div class="closing">
+    <h3>まずは<span class="ac">竹</span>（土台＋便利機能6つ＋MEO）がおすすめ</h3>
+    <p>単品で足すより割安で、「問い合わせを増やし続ける」状態を最短で作れます。予算を抑えたいときは梅で公開 → 後から竹/松へ。人手不足や営業強化が今の課題なら松へ。御社の優先度に合わせて選べます。</p>
+  </div>
+
+  <div class="foot"><span class="en">株式会社気持ち市場　kimochi.ichiba@gmail.com</span><span>おすすめパッケージ</span><span class="pnum">05</span></div>
+</section>
+
+</body>
+</html>
