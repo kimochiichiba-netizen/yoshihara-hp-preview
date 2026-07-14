@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta name="robots" content="noindex,nofollow">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>株式会社吉原｜大分市のコンクリート二次製品メーカー｜側溝・擁壁・カルバート</title>
+<!-- 制作中プレビュー。公開版ではないため検索エンジンには登録させない -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>【制作中プレビュー】株式会社吉原｜大分市のコンクリート二次製品メーカー</title>
 
 <meta name="description" content="大分市大字上戸次のコンクリート二次製品メーカー、株式会社吉原。1982年創業・従業員39名。U字溝・側溝ふた・擁壁ブロック・ボックスカルバートを規格品から特注まで製造。大分県全域・隣接県へ短納期で出荷します。">
 
@@ -475,6 +476,66 @@
   .fd-add{margin-top:8px;width:100%;background:var(--soft);border:1px dashed var(--stroke);color:var(--accent);padding:9px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;transition:.15s;}
   .fd-add:hover{background:#fff;border-color:var(--accent);}
   .fd-add.added{background:var(--accent);color:#fff;border-style:solid;border-color:var(--accent);cursor:default;}
+
+  /* ===== 3D線画サムネイル（三和スタイルの製品一覧） ===== */
+  /* 写真ではなく、寸法から描き出した線画。白地に全体が収まるように contain */
+  /* background のショートハンドを使うと background-image ごと消えるので、色だけを指定する */
+  .photo.wire, .ph.wire{
+    background-color:#fff !important;
+    background-size:contain !important;
+    background-repeat:no-repeat !important;
+    background-position:center !important;
+    border:1px solid var(--stroke);
+  }
+  /* 写真用の「青のダブルトーン」加工は線画には掛けない（透過PNGが青く塗り潰されるため） */
+  .photo.wire::after, .ph.wire::after{display:none !important;}
+  /* 線画はホバーで拡大しない（図がぼやけて図面として読めなくなるため） */
+  .fd-card:hover .ph.wire, .pcard:hover .photo.wire{transform:none !important;}
+  .fd-card .ph.wire{height:158px;background-color:#fcfdfe !important;}
+  .pcard .photo.wire{height:210px;}
+
+  /* ===== 3D製品ビューア ===== */
+  .fd-card .ph{position:relative;}
+  .pcard{cursor:pointer;}
+  .fd-3d{position:absolute;right:0;bottom:0;z-index:3;background:var(--accent);color:#fff;border:0;
+    font-family:inherit;font-size:11px;font-weight:700;letter-spacing:.06em;padding:8px 13px;cursor:pointer;transition:.15s;}
+  .fd-3d:hover{background:#1a1d21;}
+  .v3d-ov{position:fixed;inset:0;z-index:300;background:rgba(20,22,25,.86);display:none;}
+  .v3d-ov.on{display:block;}
+  .v3d{position:absolute;inset:26px;background:#fff;display:flex;overflow:hidden;}
+  .v3d-stage{flex:1;position:relative;background:#e6e8ea;min-height:0;overflow:hidden;}
+  .v3d-stage canvas{display:block;width:100%;height:100%;touch-action:none;}
+  .v3d-close{position:absolute;right:0;top:0;z-index:6;width:46px;height:46px;background:#1a1d21;color:#fff;border:0;
+    font-size:20px;line-height:1;cursor:pointer;font-family:inherit;}
+  .v3d-close:hover{background:var(--accent);}
+  .v3d-hint{position:absolute;left:0;bottom:0;z-index:5;background:rgba(26,29,33,.72);color:#fff;font-size:11px;padding:7px 11px;letter-spacing:.02em;}
+  .v3d-msg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#5b636c;font-size:13px;text-align:center;padding:20px;}
+  .v3d-side{width:340px;flex:none;border-left:1px solid var(--stroke);padding:24px;overflow-y:auto;}
+  .v3d-en{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.18em;color:var(--accent);}
+  .v3d-nm{font-size:20px;font-weight:700;margin:2px 0 4px;line-height:1.35;}
+  .v3d-sample{display:inline-block;background:#fff5d6;border:1px solid #e5cf87;color:#7a5c00;font-size:10.5px;padding:3px 7px;margin-top:6px;}
+  .v3d-lab{font-size:11px;font-weight:700;color:#5b636c;letter-spacing:.1em;margin:20px 0 7px;}
+  .v3d-chips{display:flex;flex-wrap:wrap;gap:6px;}
+  .v3d-chip{border:1px solid var(--stroke);background:#fff;padding:7px 13px;font-size:12px;cursor:pointer;font-family:inherit;color:var(--ink);transition:.15s;}
+  .v3d-chip:hover{border-color:var(--accent);color:var(--accent);}
+  .v3d-chip.on{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .v3d-tbl{width:100%;border-collapse:collapse;font-size:12px;}
+  .v3d-tbl th,.v3d-tbl td{border:1px solid var(--stroke);padding:6px 9px;text-align:left;}
+  .v3d-tbl th{background:var(--soft);font-weight:500;width:54%;color:#5b636c;}
+  .v3d-acts{display:flex;gap:8px;margin-top:18px;}
+  .v3d-acts button{flex:1;padding:12px 6px;font-size:12px;font-weight:700;font-family:inherit;cursor:pointer;border:1px solid var(--accent);transition:.15s;}
+  .v3d-acts .p{background:var(--accent);color:#fff;}
+  .v3d-acts .p:hover{background:#1a1d21;border-color:#1a1d21;}
+  .v3d-acts .s{background:#fff;color:var(--accent);}
+  .v3d-acts .s:hover{background:var(--soft);}
+  .v3d-acts button:disabled{background:var(--soft);color:#9aa0a6;border-color:var(--stroke);cursor:default;}
+  .v3d-note{font-size:11px;color:#5b636c;line-height:1.75;margin-top:18px;border-top:1px solid var(--stroke);padding-top:12px;}
+  .v3d-fbimg{width:100%;aspect-ratio:3/2;background-size:cover;background-position:center;filter:grayscale(1);}
+  @media(max-width:900px){
+    .v3d{inset:0;flex-direction:column;}
+    .v3d-stage{flex:1 1 auto;min-height:46vh;}
+    .v3d-side{width:auto;flex:0 0 auto;max-height:46vh;border-left:0;border-top:1px solid var(--stroke);padding:18px;}
+  }
   #qcart-fab{display:none;position:fixed;left:calc(var(--side) + 20px);bottom:22px;z-index:80;align-items:center;gap:9px;background:var(--ink);color:#fff;border:none;cursor:pointer;padding:13px 18px;font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:14px;box-shadow:0 10px 26px rgba(16,30,52,.3);}
   #qcart-fab.show{display:flex;}
   #qcart-fab .qn{background:var(--accent);color:#fff;font-family:"Oswald";font-size:12px;padding:1px 7px;min-width:22px;text-align:center;}
@@ -542,9 +603,9 @@
 </header>
 
 <section class="hero" id="top">
-  <div class="hphoto"><div class="kb" style="background-image:url('https://picsum.photos/seed/bridge4/700/1000?grayscale')"></div></div>
-  <div class="hphoto"><div class="kb" style="background-image:url('https://picsum.photos/seed/field2/700/1000?grayscale');animation-delay:-7s"></div></div>
-  <div class="hphoto"><div class="kb" style="background-image:url('https://picsum.photos/seed/mountain6/700/1000?grayscale');animation-delay:-14s"></div></div>
+  <div class="hphoto"><div class="kb" data-img="hero_1"></div></div>
+  <div class="hphoto"><div class="kb" data-img="hero_2" style="animation-delay:-7s"></div></div>
+  <div class="hphoto"><div class="kb" data-img="hero_3" style="animation-delay:-14s"></div></div>
   <div class="copy">
     <h1><span class="box">大分の足元を、</span><br><span class="box"><span class="ac">40年以上</span>支えてきた。</span></h1>
     <div class="tagline">道路・河川・宅地の基盤をつくる、大分市のコンクリート二次製品メーカー</div>
@@ -565,12 +626,12 @@
     <p class="lead reveal">道路の側溝から河川の護岸、宅地の擁壁まで。大分の現場で日々使われるコンクリート二次製品を、規格品から特注品まで製造しています。サイズや形状のご相談は、図面の段階からお受けします。</p>
     
     <div class="products">
-      <a class="pcard reveal d1"><div class="photo" style="background-image:url('https://picsum.photos/seed/steel7/600/400?grayscale')"><span class="jis">JIS A 5372</span></div><div class="pl"><span><span class="en">DITCH</span><br><b>U字溝・側溝</b></span><span class="arr">→</span></div></a>
-      <a class="pcard reveal d2"><div class="photo" style="background-image:url('https://picsum.photos/seed/industry5/600/400?grayscale')"><span class="jis">JIS A 5372</span></div><div class="pl"><span><span class="en">LID</span><br><b>側溝ふた</b></span><span class="arr">→</span></div></a>
-      <a class="pcard reveal d3"><div class="photo" style="background-image:url('https://picsum.photos/seed/mountain6/600/400?grayscale')"><span class="jis">規格 要確認</span></div><div class="pl"><span><span class="en">RETAINING WALL</span><br><b>擁壁ブロック</b></span><span class="arr">→</span></div></a>
-      <a class="pcard reveal d1"><div class="photo" style="background-image:url('https://picsum.photos/seed/bridge4/600/400?grayscale')"><span class="jis">規格 要確認</span></div><div class="pl"><span><span class="en">BLOCK</span><br><b>大型積みブロック</b></span><span class="arr">→</span></div></a>
-      <a class="pcard reveal d2"><div class="photo" style="background-image:url('https://picsum.photos/seed/build9/600/400?grayscale')"><span class="jis">JIS A 5372</span></div><div class="pl"><span><span class="en">CULVERT</span><br><b>ボックスカルバート</b></span><span class="arr">→</span></div></a>
-      <a class="pcard reveal d3"><div class="photo" style="background-image:url('https://picsum.photos/seed/stone5/600/400?grayscale')"><span class="jis">型枠から対応</span></div><div class="pl"><span><span class="en">CUSTOM</span><br><b>特注・オーダー製品</b></span><span class="arr">→</span></div></a>
+      <a class="pcard reveal d1" onclick="openViewer('u240')"><div class="photo" data-img="prod_ditch" data-thumb="u240"></div><div class="pl"><span><span class="en">DITCH</span><br><b>U字溝・側溝</b></span><span class="arr">→</span></div></a>
+      <a class="pcard reveal d2" onclick="openViewer('lid')"><div class="photo" data-img="prod_lid" data-thumb="lid"></div><div class="pl"><span><span class="en">LID</span><br><b>側溝ふた</b></span><span class="arr">→</span></div></a>
+      <a class="pcard reveal d3" onclick="openViewer('rw1')"><div class="photo" data-img="prod_wall" data-thumb="rw1"></div><div class="pl"><span><span class="en">RETAINING WALL</span><br><b>擁壁ブロック</b></span><span class="arr">→</span></div></a>
+      <a class="pcard reveal d1" onclick="openViewer('stk')"><div class="photo" data-img="prod_block" data-thumb="stk"></div><div class="pl"><span><span class="en">BLOCK</span><br><b>大型積みブロック</b></span><span class="arr">→</span></div></a>
+      <a class="pcard reveal d2" onclick="openViewer('cv1')"><div class="photo" data-img="prod_culvert" data-thumb="cv1"></div><div class="pl"><span><span class="en">CULVERT</span><br><b>ボックスカルバート</b></span><span class="arr">→</span></div></a>
+      <a class="pcard reveal d3" onclick="openViewer('cst')"><div class="photo" data-img="prod_custom" data-thumb="cst"></div><div class="pl"><span><span class="en">CUSTOM</span><br><b>特注・オーダー製品</b></span><span class="arr">→</span></div></a>
     </div>
   </div>
 </section>
@@ -585,15 +646,16 @@
         <div id="fd-cats" style="display:flex;flex-wrap:wrap;gap:10px;"></div>
       </div>
       <div class="fd-row">
-        <span class="fd-lab">規格</span>
-        <select id="fd-jis"><option value="">すべての規格</option><option>JIS A 5372</option><option>その他・要確認</option></select>
+        <!-- 認証（JIS等）の取得実態を確認するまで規格の絞り込みは非表示。取得証を確認できたら display:none を外し、option を戻す -->
+        <span class="fd-lab">絞り込み</span>
+        <select id="fd-jis" style="display:none;"><option value="">すべての規格</option></select>
         <input class="fd-kw" id="fd-kw" type="text" placeholder="キーワード（例：U字溝、擁壁、300）">
         <button class="fd-chip" id="fd-reset" type="button">条件をクリア</button>
       </div>
     </div>
     <div class="fd-count" id="fd-count"></div>
     <div class="fd-grid" id="fd-grid"></div>
-    <p class="tool-note reveal">※掲載しているJIS規格・呼び寸法は<b>サンプル表示</b>です。公開前に実際の取扱製品データへ差し替えます。正確な仕様はお問い合わせ・カタログでご確認ください。</p>
+    <p class="tool-note reveal">※掲載している製品・呼び寸法は<b>サンプル表示</b>です。公開前に実際の取扱製品データへ差し替えます。正確な仕様はお問い合わせ・カタログでご確認ください。</p>
   </div>
 </section>
 
@@ -640,9 +702,9 @@
     <p class="lead reveal">コンクリート二次製品は、道路や河川といった社会の基盤を何十年も支え続けるものです。2012年には自動温度制御装置を導入し、国内クレジット制度（排出削減事業）の承認も受けました。品質・環境・地域の3つを軸に、ものづくりを続けています。</p>
     
     <div class="stopics">
-      <div class="stopic reveal d1"><div class="photo" style="background-image:url('https://picsum.photos/seed/gray3/600/400?grayscale')"><span class="lab">ENVIRONMENT</span></div><div class="tx"><h3>環境への配慮</h3><p>2012年導入の自動温度制御で養生のエネルギーを抑制。長く使えるインフラ製品で更新の負担も減らします。</p></div></div>
-      <div class="stopic reveal d2"><div class="photo" style="background-image:url('https://picsum.photos/seed/factory2/600/400?grayscale')"><span class="lab">COMMUNITY</span></div><div class="tx"><h3>地域とともに</h3><p>大分市上戸次で39名が働く地元の工場。地域の雇用を守り、足元から暮らしの安全を支えます。</p></div></div>
-      <div class="stopic reveal d3"><div class="photo" style="background-image:url('https://picsum.photos/seed/wall7/600/400?grayscale')"><span class="lab">QUALITY &amp; SAFETY</span></div><div class="tx"><h3>品質と安全</h3><p>出荷前の検査を徹底し、働く人が安心できる安全な職場づくりを進めます。</p></div></div>
+      <div class="stopic reveal d1"><div class="photo" data-img="sus_env"><span class="lab">ENVIRONMENT</span></div><div class="tx"><h3>環境への配慮</h3><p>2012年導入の自動温度制御で養生のエネルギーを抑制。長く使えるインフラ製品で更新の負担も減らします。</p></div></div>
+      <div class="stopic reveal d2"><div class="photo" data-img="sus_community"><span class="lab">COMMUNITY</span></div><div class="tx"><h3>地域とともに</h3><p>大分市上戸次で39名が働く地元の工場。地域の雇用を守り、足元から暮らしの安全を支えます。</p></div></div>
+      <div class="stopic reveal d3"><div class="photo" data-img="sus_quality"><span class="lab">QUALITY &amp; SAFETY</span></div><div class="tx"><h3>品質と安全</h3><p>出荷前の検査を徹底し、働く人が安心できる安全な職場づくりを進めます。</p></div></div>
     </div>
     <div class="trust reveal">
       <div class="cap">AFFILIATIONS ／ 所属団体</div>
@@ -658,7 +720,7 @@
 
 <section id="plant" style="padding:0;">
   <div class="plant">
-    <div class="photo" style="background-image:url('https://picsum.photos/seed/factory2/800/900?grayscale')"></div>
+    <div class="photo" data-img="about_factory"></div>
     <div class="steps">
       <div class="bigtitle reveal"><span class="fill">P</span>LANT</div>
       <div class="secjp reveal">製造の流れ</div>
@@ -676,14 +738,14 @@
     <div class="shead reveal"><div class="bigtitle"><span class="fill">W</span>ORKS</div><div class="secjp">施工・納入事例</div></div>
     <p class="lead reveal">当社製品が使われた現場の一例です。画像をクリックすると拡大表示されます。</p>
     <div class="works">
-      <div class="w reveal d1"><div class="photo" style="background-image:url('https://picsum.photos/seed/field2/600/400?grayscale')"></div><div class="cap">道路側溝工事</div></div>
-      <div class="w reveal d1"><div class="photo" style="background-image:url('https://picsum.photos/seed/stone5/600/400?grayscale')"></div><div class="cap">河川護岸工事</div></div>
-      <div class="w reveal d2"><div class="photo" style="background-image:url('https://picsum.photos/seed/mountain6/600/400?grayscale')"></div><div class="cap">擁壁施工</div></div>
-      <div class="w reveal d2"><div class="photo" style="background-image:url('https://picsum.photos/seed/bridge4/600/400?grayscale')"></div><div class="cap">橋梁・構造物基礎</div></div>
-      <div class="w reveal d1"><div class="photo" style="background-image:url('https://picsum.photos/seed/steel7/600/400?grayscale')"></div><div class="cap">宅地造成</div></div>
-      <div class="w reveal d2"><div class="photo" style="background-image:url('https://picsum.photos/seed/factory2/600/400?grayscale')"></div><div class="cap">ボックスカルバート敷設</div></div>
-      <div class="w reveal d3"><div class="photo" style="background-image:url('https://picsum.photos/seed/build9/600/400?grayscale')"></div><div class="cap">防護柵・基礎ブロック</div></div>
-      <div class="w reveal d3"><div class="photo" style="background-image:url('https://picsum.photos/seed/industry5/600/400?grayscale')"></div><div class="cap">特注製品の納入</div></div>
+      <div class="w reveal d1"><div class="photo" data-img="work_1"></div><div class="cap">道路側溝工事</div></div>
+      <div class="w reveal d1"><div class="photo" data-img="work_2"></div><div class="cap">河川護岸工事</div></div>
+      <div class="w reveal d2"><div class="photo" data-img="work_3"></div><div class="cap">擁壁施工</div></div>
+      <div class="w reveal d2"><div class="photo" data-img="work_4"></div><div class="cap">橋梁・構造物基礎</div></div>
+      <div class="w reveal d1"><div class="photo" data-img="work_5"></div><div class="cap">宅地造成</div></div>
+      <div class="w reveal d2"><div class="photo" data-img="work_6"></div><div class="cap">ボックスカルバート敷設</div></div>
+      <div class="w reveal d3"><div class="photo" data-img="work_7"></div><div class="cap">防護柵・基礎ブロック</div></div>
+      <div class="w reveal d3"><div class="photo" data-img="work_8"></div><div class="cap">特注製品の納入</div></div>
     </div>
   </div>
 </section>
@@ -727,7 +789,7 @@
     <div class="shead reveal"><div class="bigtitle"><span class="fill">C</span>OMPANY</div><div class="secjp">会社案内</div></div>
 
     <div class="message">
-      <div class="photo reveal" style="background-image:url('https://picsum.photos/seed/steel7/600/700?grayscale')"></div>
+      <div class="photo reveal" data-img="message_ceo"></div>
       <div class="mtx reveal d1">
         <h3>社員が幸せを感じられる会社で、<br><span class="ac">確かなもの</span>をつくり続ける。</h3>
         <p>創業以来、私たちは道路や河川といった社会の基盤を支えるコンクリート二次製品を、大分の現場へ届けてまいりました。建設・コンクリートの仕事は、人の手でしか積み上げられない、本質的にアナログなものづくりです。</p>
@@ -811,7 +873,7 @@
         <div class="field"><label>メールアドレス<span class="req">必須</span></label><input id="dl-mail" type="email" required placeholder="taro@example.co.jp"></div>
         <label class="consent">
           <input type="checkbox" required>
-          <span><a href="#" id="openPrivacy3">プライバシーポリシー</a>に同意のうえ送信します。ご登録の情報は、資料送付・製品のご案内に利用します。</span>
+          <span><a href="#" id="openPrivacy3">プライバシーポリシー</a>に同意のうえ送信します。ご登録の情報は、資料・CADデータのご送付、お問い合わせ・お見積りへの対応、および当社製品・サービスのご案内に利用します。</span>
         </label>
         <button class="submit" type="submit">資料をダウンロードする</button>
         <div class="dl-ok" id="dl-ok"></div>
@@ -853,7 +915,7 @@
         
         <label class="consent">
           <input type="checkbox" required>
-          <span><a href="#" id="openPrivacy">プライバシーポリシー</a>に同意のうえ送信します。いただいた個人情報は、本ポリシーに定める目的（お問い合わせ・お見積りへの対応、製品・サービスのご案内）の範囲で利用します。</span>
+          <span><a href="#" id="openPrivacy">プライバシーポリシー</a>に同意のうえ送信します。いただいた個人情報は、本ポリシーに定める目的（お問い合わせ・お見積り・資料請求への対応、資料のご送付、当社製品・サービスのご案内）の範囲で利用します。</span>
         </label>
         <button class="submit" type="submit">この内容で送信する</button>
       </form>
@@ -891,15 +953,50 @@
   <div class="pv">
     <h3>プライバシーポリシー</h3>
     <div class="en">PRIVACY POLICY</div>
-    <p>株式会社吉原（以下「当社」）は、お問い合わせいただいたお客様の個人情報を、以下の方針に基づき適切に取り扱います。</p>
-    <h4>1. 取得する情報</h4>
-    <p>お問い合わせフォーム、および資料ダウンロード登録フォームを通じて、会社名・お名前・電話番号（お問い合わせ時）・メールアドレス・お問い合わせ内容を取得します。</p>
+    <p>株式会社吉原（以下「当社」）は、お客様からお預かりする個人情報の重要性を認識し、個人情報の保護に関する法律その他の関係法令を遵守し、以下の方針に基づき適切に取り扱います。</p>
+
+    <h4>1. 取得する情報と取得の方法</h4>
+    <p>当社は、次の3つの窓口を通じて、会社名・部署名・お名前・電話番号・メールアドレス・お問い合わせ内容（ご検討中の製品・数量・現場の所在地などを含む場合があります）を取得します。</p>
+    <p>
+      ① お問い合わせフォーム<br>
+      ② 資料・CADデータのダウンロード登録フォーム<br>
+      ③ まとめて見積りリストからのお見積り依頼（ご選択の内容はお問い合わせフォームに転記され、①の窓口から送信されます）
+    </p>
+    <p>いずれもお客様ご自身にご入力いただく方法で取得し、ご入力は任意です。ただし必須項目をご記入いただけない場合、ご対応できないことがあります。</p>
+
     <h4>2. 利用目的</h4>
-    <p>お問い合わせ・お見積り・資料請求への対応、および当社製品・サービスのご案内のために利用します。</p>
+    <p>上記①〜③で取得した個人情報は、いずれも次の目的の範囲でのみ利用します。</p>
+    <p>
+      ・お問い合わせ、お見積り、資料請求へのご回答および対応<br>
+      ・ご依頼いただいた資料・CADデータのご送付<br>
+      ・当社製品・サービスに関するご案内およびご連絡<br>
+      ・製品の改善、および取り扱い製品の検討のための統計的な分析（個人を特定しない形に加工して行います）
+    </p>
+    <p>これら以外の目的には利用しません。目的を超えて利用する必要が生じた場合は、あらためてご本人の同意をいただきます。</p>
+
     <h4>3. 第三者提供</h4>
     <p>法令に基づく場合を除き、ご本人の同意なく第三者へ提供することはありません。</p>
-    <h4>4. お問い合わせ窓口</h4>
-    <p>個人情報の開示・訂正・削除のご請求は、TEL 097-595-0019 までご連絡ください。</p>
+
+    <h4>4. 業務の委託</h4>
+    <p>利用目的の達成に必要な範囲で、資料の送付や当ウェブサイトの保守などの業務を外部に委託する場合があります。この場合、委託先に対して必要かつ適切な監督を行います。</p>
+
+    <h4>5. 安全管理措置</h4>
+    <p>取得した個人情報について、漏えい・滅失・毀損の防止その他の安全管理のために必要かつ適切な措置を講じます。取り扱う従業者を限定し、必要な監督を行います。</p>
+
+    <h4>6. 保管期間</h4>
+    <p>利用目的を達成するために必要な期間、および法令で定められた期間を保管し、不要となった個人情報は適切な方法で速やかに廃棄・消去します。</p>
+
+    <h4>7. 開示・訂正・削除等のご請求</h4>
+    <p>ご本人からの個人情報の開示・訂正・追加・削除・利用停止のご請求については、ご本人であることを確認したうえで、法令に従い遅滞なく対応いたします。</p>
+
+    <h4>8. お問い合わせ窓口</h4>
+    <p>本ポリシーおよび個人情報の取り扱いに関するお問い合わせは、下記までご連絡ください。<br>
+      株式会社吉原<br>
+      〒879-7764　大分県大分市大字上戸次2527番地<br>
+      TEL 097-595-0019</p>
+
+    <!-- 公開前に実際の制定日を記入すること -->
+    <p style="margin-top:20px;font-size:12.5px;color:#7a828a;">制定日：　　年　　月　　日</p>
     <button class="pvx" id="closePrivacy">閉じる</button>
   </div>
 </div>
@@ -919,6 +1016,72 @@
 </div>
 
 <script>
+  /* ===================================================================
+     写真さしかえ表
+     実写真が届いたら、右側の '...' を  'img/ファイル名.jpg'  に書き換えるだけで
+     ページ全体に反映されます。（現在はすべて仮画像＝フリー素材）
+     =================================================================== */
+  var IMG = {
+    'hero_1':        'https://picsum.photos/seed/bridge4/700/1000?grayscale',  // トップの大きな写真1（工場外観・引き）
+    'hero_2':        'https://picsum.photos/seed/field2/700/1000?grayscale',  // トップの大きな写真2（製造ライン）
+    'hero_3':        'https://picsum.photos/seed/mountain6/700/1000?grayscale',  // トップの大きな写真3（施工現場）
+    'prod_ditch':    'https://picsum.photos/seed/steel7/600/400?grayscale',  // 製品カード：U字溝・側溝
+    'prod_lid':      'https://picsum.photos/seed/industry5/600/400?grayscale',  // 製品カード：側溝ふた
+    'prod_wall':     'https://picsum.photos/seed/mountain6/600/400?grayscale',  // 製品カード：擁壁ブロック
+    'prod_block':    'https://picsum.photos/seed/bridge4/600/400?grayscale',  // 製品カード：大型積みブロック
+    'prod_culvert':  'https://picsum.photos/seed/build9/600/400?grayscale',  // 製品カード：ボックスカルバート
+    'prod_custom':   'https://picsum.photos/seed/stone5/600/400?grayscale',  // 製品カード：特注・オーダー製品
+    'sus_env':       'https://picsum.photos/seed/gray3/600/400?grayscale',  // 取り組み：環境への配慮（蒸気養生の設備）
+    'sus_community': 'https://picsum.photos/seed/factory2/600/400?grayscale',  // 取り組み：地域とともに（働く人）
+    'sus_quality':   'https://picsum.photos/seed/wall7/600/400?grayscale',  // 取り組み：品質と安全（検査風景）
+    'about_factory': 'https://picsum.photos/seed/factory2/800/900?grayscale',  // 会社紹介セクションの写真（工場・製品ヤード）
+    'work_1':        'https://picsum.photos/seed/field2/600/400?grayscale',  // 施工実績ギャラリー 1枚目
+    'work_2':        'https://picsum.photos/seed/stone5/600/400?grayscale',  // 施工実績ギャラリー 2枚目
+    'work_3':        'https://picsum.photos/seed/mountain6/600/400?grayscale',  // 施工実績ギャラリー 3枚目
+    'work_4':        'https://picsum.photos/seed/bridge4/600/400?grayscale',  // 施工実績ギャラリー 4枚目
+    'work_5':        'https://picsum.photos/seed/steel7/600/400?grayscale',  // 施工実績ギャラリー 5枚目
+    'work_6':        'https://picsum.photos/seed/factory2/600/400?grayscale',  // 施工実績ギャラリー 6枚目
+    'work_7':        'https://picsum.photos/seed/build9/600/400?grayscale',  // 施工実績ギャラリー 7枚目
+    'work_8':        'https://picsum.photos/seed/industry5/600/400?grayscale',  // 施工実績ギャラリー 8枚目
+    'message_ceo':   'https://picsum.photos/seed/steel7/600/700?grayscale',  // 代表メッセージの写真（代表者近影）
+
+    /* --- 製品ごとの写真（製品検索・見積りリストで使用） --- */
+    'p_bdy':         'https://picsum.photos/seed/field2/600/400?grayscale',
+    'p_cst':         'https://picsum.photos/seed/stone5/600/400?grayscale',
+    'p_cv1':         'https://picsum.photos/seed/factory2/600/400?grayscale',
+    'p_cv2':         'https://picsum.photos/seed/factory2/600/400?grayscale',
+    'p_grt':         'https://picsum.photos/seed/build9/600/400?grayscale',
+    'p_l250':        'https://picsum.photos/seed/industry5/600/400?grayscale',
+    'p_lid':         'https://picsum.photos/seed/build9/600/400?grayscale',
+    'p_rev':         'https://picsum.photos/seed/stone5/600/400?grayscale',
+    'p_rw1':         'https://picsum.photos/seed/mountain6/600/400?grayscale',
+    'p_rw2':         'https://picsum.photos/seed/mountain6/600/400?grayscale',
+    'p_stk':         'https://picsum.photos/seed/bridge4/600/400?grayscale',
+    'p_u240':        'https://picsum.photos/seed/steel7/600/400?grayscale',
+    'p_u300':        'https://picsum.photos/seed/industry5/600/400?grayscale',
+    'p_u360':        'https://picsum.photos/seed/steel7/600/400?grayscale',
+
+    /* --- 施工事例ごとの写真 --- */
+    'c_1':           'https://picsum.photos/seed/field2/600/400?grayscale',
+    'c_2':           'https://picsum.photos/seed/steel7/600/400?grayscale',
+    'c_3':           'https://picsum.photos/seed/factory2/600/400?grayscale',
+    'c_4':           'https://picsum.photos/seed/stone5/600/400?grayscale',
+    'c_5':           'https://picsum.photos/seed/mountain6/600/400?grayscale',
+    'c_6':           'https://picsum.photos/seed/factory2/600/400?grayscale',
+    'c_7':           'https://picsum.photos/seed/bridge4/600/400?grayscale',
+    'c_8':           'https://picsum.photos/seed/industry5/600/400?grayscale',
+    'c_9':           'https://picsum.photos/seed/build9/600/400?grayscale',
+    'c_10':          'https://picsum.photos/seed/gray3/600/400?grayscale',
+
+    '_default':      'https://picsum.photos/seed/gray3/600/400?grayscale'  // 写真が無いときの代わり
+  };
+  function imgUrl(k){ var u = (k && IMG[k]) || IMG['_default']; return encodeURI(u); }
+  document.addEventListener('DOMContentLoaded', function(){
+    var ns = document.querySelectorAll('[data-img]');
+    for (var i=0; i<ns.length; i++){
+      ns[i].style.backgroundImage = "url('" + imgUrl(ns[i].getAttribute('data-img')) + "')";
+    }
+  });
   // モバイルメニュー
   var hmenu=document.getElementById('hmenu'),menu=document.getElementById('menu');
   hmenu.addEventListener('click',function(){menu.classList.toggle('open');});
@@ -990,23 +1153,56 @@
   (function(){
     var USES=['道路・側溝','河川・水路','宅地造成','擁壁・法面','雨水・排水','安全・防護','特注・その他'];
     // 製品マスター（サンプル）。unit:'length'=延長(m)/本, 'area'=面積(m²)/個, 'none'=要相談
+    // shape / dims = 3Dビューアの形状と寸法（単位mm）。※現在はサンプル寸法。
+    //   公開前に「吉原_製品記入表.xlsx ④3D用寸法」の実測値へ差し替えること（実物と違う形を見せないため）。
+    //   shape: u_ditch=U字溝 / l_ditch=L形側溝 / lid=ふた（grating:trueで受枠付き）/ box=角筒
+    //          retaining=L型擁壁 / trapezoid=台形ブロック / boxsolid=直方体 / custom=特注（汎用）
     var PRODUCTS=[
-      {id:'u240', name:'U字溝 240型', en:'U-DITCH', cat:['道路・側溝','雨水・排水'], jis:'JIS A 5372', sizes:['呼び240'], unit:'length', per:0.6, img:'steel7', stock:'即納'},
-      {id:'u300', name:'U字溝 300型', en:'U-DITCH', cat:['道路・側溝','雨水・排水'], jis:'JIS A 5372', sizes:['呼び300'], unit:'length', per:0.6, img:'industry5', stock:'即納'},
-      {id:'u360', name:'U字溝 360型', en:'U-DITCH', cat:['道路・側溝','雨水・排水'], jis:'JIS A 5372', sizes:['呼び360'], unit:'length', per:0.6, img:'steel7', stock:'標準'},
-      {id:'l250', name:'L形側溝 250', en:'L-DITCH', cat:['道路・側溝'], jis:'JIS A 5372', sizes:['呼び250'], unit:'length', per:0.6, img:'industry5', stock:'標準'},
-      {id:'lid',  name:'側溝ふた（プレーン）', en:'LID', cat:['道路・側溝','安全・防護'], jis:'JIS A 5372', sizes:['240','300','360'], unit:'length', per:0.6, img:'build9', stock:'即納'},
-      {id:'grt',  name:'グレーチング対応ふた', en:'GRATING LID', cat:['道路・側溝','安全・防護'], jis:'規格 要確認', sizes:['300','360'], unit:'length', per:0.6, img:'build9', stock:'標準'},
-      {id:'rw1',  name:'小型擁壁ブロック', en:'RETAINING WALL', cat:['擁壁・法面','宅地造成'], jis:'規格 要確認', sizes:['H300','H500'], unit:'area', per:0.5, img:'mountain6', stock:'標準'},
-      {id:'rw2',  name:'大型擁壁ブロック', en:'L-RETAINING WALL', cat:['擁壁・法面'], jis:'規格 要確認', sizes:['H1000','H1500'], unit:'area', per:1.0, img:'mountain6', stock:'受注生産'},
-      {id:'stk',  name:'大型積みブロック', en:'STACKING BLOCK', cat:['擁壁・法面','河川・水路'], jis:'規格 要確認', sizes:['標準型'], unit:'area', per:0.5, img:'bridge4', stock:'受注生産'},
-      {id:'rev',  name:'護岸ブロック', en:'REVETMENT', cat:['河川・水路'], jis:'規格 要確認', sizes:['標準型'], unit:'area', per:0.25, img:'stone5', stock:'受注生産'},
-      {id:'bdy',  name:'境界ブロック', en:'BOUNDARY', cat:['宅地造成'], jis:'規格 要確認', sizes:['120','150'], unit:'length', per:0.6, img:'field2', stock:'即納'},
-      {id:'cv1',  name:'ボックスカルバート 1000×1000', en:'BOX CULVERT', cat:['雨水・排水','河川・水路'], jis:'JIS A 5372', sizes:['1000×1000'], unit:'length', per:2.0, img:'factory2', stock:'標準'},
-      {id:'cv2',  name:'ボックスカルバート 1500×1500', en:'BOX CULVERT', cat:['雨水・排水','河川・水路'], jis:'JIS A 5372', sizes:['1500×1500'], unit:'length', per:2.0, img:'factory2', stock:'受注生産'},
-      {id:'cst',  name:'特注・オーダー製品', en:'CUSTOM', cat:['特注・その他'], jis:'型枠から対応', sizes:['特注対応'], unit:'none', per:0, img:'stone5', stock:'受注生産'}
+      {id:'u240', name:'U字溝 240型', en:'U-DITCH', cat:['道路・側溝','雨水・排水'], jis:'', sizes:['呼び240'], unit:'length', per:0.6, img:'p_u240', stock:'即納',
+       shape:'u_ditch', dims:{'呼び240':{inW:240,inH:240,t:60,L:600}}},
+      {id:'u300', name:'U字溝 300型', en:'U-DITCH', cat:['道路・側溝','雨水・排水'], jis:'', sizes:['呼び300'], unit:'length', per:0.6, img:'p_u300', stock:'即納',
+       shape:'u_ditch', dims:{'呼び300':{inW:300,inH:300,t:60,L:600}}},
+      {id:'u360', name:'U字溝 360型', en:'U-DITCH', cat:['道路・側溝','雨水・排水'], jis:'', sizes:['呼び360'], unit:'length', per:0.6, img:'p_u360', stock:'標準',
+       shape:'u_ditch', dims:{'呼び360':{inW:360,inH:360,t:70,L:600}}},
+      {id:'l250', name:'L形側溝 250', en:'L-DITCH', cat:['道路・側溝'], jis:'', sizes:['呼び250'], unit:'length', per:0.6, img:'p_l250', stock:'標準',
+       shape:'l_ditch', dims:{'呼び250':{inW:250,inH:250,t:60,L:600,wallH:420}}},
+      {id:'lid',  name:'側溝ふた（プレーン）', en:'LID', cat:['道路・側溝','安全・防護'], jis:'', sizes:['240','300','360'], unit:'length', per:0.6, img:'p_lid', stock:'即納',
+       shape:'lid', dims:{'240':{W:360,L:600,t:60},'300':{W:420,L:600,t:60},'360':{W:500,L:600,t:70}}},
+      {id:'grt',  name:'グレーチング対応ふた', en:'GRATING LID', cat:['道路・側溝','安全・防護'], jis:'', sizes:['300','360'], unit:'length', per:0.6, img:'p_grt', stock:'標準',
+       shape:'lid', grating:true, dims:{'300':{W:420,L:600,t:60},'360':{W:500,L:600,t:70}}},
+      {id:'rw1',  name:'小型擁壁ブロック', en:'RETAINING WALL', cat:['擁壁・法面','宅地造成'], jis:'', sizes:['H300','H500'], unit:'area', per:0.5, img:'p_rw1', stock:'標準',
+       shape:'retaining', dims:{'H300':{H:300,base:250,t:70,L:1000},'H500':{H:500,base:350,t:80,L:1000}}},
+      {id:'rw2',  name:'大型擁壁ブロック', en:'L-RETAINING WALL', cat:['擁壁・法面'], jis:'', sizes:['H1000','H1500'], unit:'area', per:1.0, img:'p_rw2', stock:'受注生産',
+       shape:'retaining', dims:{'H1000':{H:1000,base:700,t:120,L:1000},'H1500':{H:1500,base:1000,t:150,L:1000}}},
+      {id:'stk',  name:'大型積みブロック', en:'STACKING BLOCK', cat:['擁壁・法面','河川・水路'], jis:'', sizes:['標準型'], unit:'area', per:0.5, img:'p_stk', stock:'受注生産',
+       shape:'trapezoid', dims:{'標準型':{frontW:1000,backW:800,H:500,D:400}}},
+      {id:'rev',  name:'護岸ブロック', en:'REVETMENT', cat:['河川・水路'], jis:'', sizes:['標準型'], unit:'area', per:0.25, img:'p_rev', stock:'受注生産',
+       shape:'trapezoid', dims:{'標準型':{frontW:500,backW:430,H:500,D:250}}},
+      {id:'bdy',  name:'境界ブロック', en:'BOUNDARY', cat:['宅地造成'], jis:'', sizes:['120','150'], unit:'length', per:0.6, img:'p_bdy', stock:'即納',
+       shape:'boxsolid', dims:{'120':{W:120,H:120,L:600},'150':{W:150,H:150,L:600}}},
+      {id:'cv1',  name:'ボックスカルバート 1000×1000', en:'BOX CULVERT', cat:['雨水・排水','河川・水路'], jis:'', sizes:['1000×1000'], unit:'length', per:2.0, img:'p_cv1', stock:'標準',
+       shape:'box', dims:{'1000×1000':{inW:1000,inH:1000,t:120,L:2000}}},
+      {id:'cv2',  name:'ボックスカルバート 1500×1500', en:'BOX CULVERT', cat:['雨水・排水','河川・水路'], jis:'', sizes:['1500×1500'], unit:'length', per:2.0, img:'p_cv2', stock:'受注生産',
+       shape:'box', dims:{'1500×1500':{inW:1500,inH:1500,t:150,L:2000}}},
+      {id:'cst',  name:'特注・オーダー製品', en:'CUSTOM', cat:['特注・その他'], jis:'', sizes:['特注対応'], unit:'none', per:0, img:'p_cst', stock:'受注生産',
+       shape:'custom', dims:{'特注対応':{W:600,H:400,L:1000}}}
     ];
-    function pImg(id){var p=byId(id);return "https://picsum.photos/seed/"+((p&&p.img)||'gray3')+"/600/400?grayscale";}
+    window.YH_PRODUCTS=PRODUCTS;
+
+    // 製品の分類（三和コンクリートの一覧と同じ4分類。細かい用途はここへ束ねる）
+    var GROUPS=['道路用製品','水路用製品','宅地用製品','特注'];
+    function grpsOf(p){
+      var g=[], c=p.cat, has=function(a){for(var i=0;i<a.length;i++){if(c.indexOf(a[i])>=0)return true;}return false;};
+      if(has(['道路・側溝','安全・防護'])) g.push('道路用製品');
+      if(has(['雨水・排水','河川・水路'])) g.push('水路用製品');
+      if(has(['擁壁・法面','宅地造成']))   g.push('宅地用製品');
+      if(has(['特注・その他']))            g.push('特注');
+      return g;
+    }
+    function pImg(id){var p=byId(id);return imgUrl(p&&p.img);}
+    // 線画サムネがあればそれを、無ければ写真を返す（3D非対応の環境でも一覧が成立するように）
+    function pThumb(id){var t=window.YH_THUMBS&&window.YH_THUMBS[id];return t||pImg(id);}
+    function isWireThumb(id){return !!(window.YH_THUMBS&&window.YH_THUMBS[id]);}
     function byId(id){for(var i=0;i<PRODUCTS.length;i++){if(PRODUCTS[i].id===id)return PRODUCTS[i];}return null;}
     function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
     function num(n){try{return Number(n).toLocaleString('ja-JP');}catch(_){return ''+n;}}
@@ -1016,6 +1212,7 @@
     var refreshFinder=function(){};
     function inCart(id){return cart.some(function(c){return c.id===id;});}
     function addToCart(p){if(!inCart(p.id)){cart.push({id:p.id,name:p.name,qty:''});}refreshFinder();updateCart();}
+    window.YH_addToCart=addToCart; window.YH_inCart=inCart;   // 3Dビューアから既存の見積りリストへ接続
     function updateCart(){
       var qfab=document.getElementById('qcart-fab'),qlist=document.getElementById('qcart-list'),qn=document.getElementById('qcart-n');
       if(!qfab||!qlist||!qn)return;
@@ -1041,11 +1238,11 @@
       var fdState={cat:'',jis:'',kw:''};
       var fdCount=document.getElementById('fd-count'),fdCats=document.getElementById('fd-cats'),
           fdJis=document.getElementById('fd-jis'),fdKw=document.getElementById('fd-kw');
-      var allChip=el('button','fd-chip on','すべて');allChip.type='button';allChip.onclick=function(){setCat('');};
+      var allChip=el('button','fd-chip on','ALL');allChip.type='button';allChip.onclick=function(){setCat('');};
       fdCats.appendChild(allChip);
-      USES.forEach(function(u){var c=el('button','fd-chip',u);c.type='button';c.onclick=function(){setCat(u);};fdCats.appendChild(c);});
+      GROUPS.forEach(function(u){var c=el('button','fd-chip',u);c.type='button';c.onclick=function(){setCat(u);};fdCats.appendChild(c);});
       function setCat(u){fdState.cat=u;
-        fdCats.querySelectorAll('.fd-chip').forEach(function(c){c.classList.toggle('on',(u===''&&c.textContent==='すべて')||c.textContent===u);});
+        fdCats.querySelectorAll('.fd-chip').forEach(function(c){c.classList.toggle('on',(u===''&&c.textContent==='ALL')||c.textContent===u);});
         renderFinder();}
       fdJis.addEventListener('change',function(){fdState.jis=this.value;renderFinder();});
       fdKw.addEventListener('input',function(){fdState.kw=this.value.trim();renderFinder();});
@@ -1053,7 +1250,7 @@
       function matchJis(p){if(!fdState.jis)return true;if(fdState.jis==='JIS A 5372')return p.jis.indexOf('5372')>=0;return p.jis.indexOf('5372')<0;}
       function matchKw(p){if(!fdState.kw)return true;var hay=(p.name+' '+p.en+' '+p.cat.join(' ')+' '+p.sizes.join(' ')+' '+p.jis).toLowerCase();return hay.indexOf(fdState.kw.toLowerCase())>=0;}
       function renderFinder(){
-        var list=PRODUCTS.filter(function(p){return (!fdState.cat||p.cat.indexOf(fdState.cat)>=0)&&matchJis(p)&&matchKw(p);});
+        var list=PRODUCTS.filter(function(p){return (!fdState.cat||grpsOf(p).indexOf(fdState.cat)>=0)&&matchJis(p)&&matchKw(p);});
         fdCount.textContent='';
         fdCount.appendChild(document.createTextNode('全 '));var b1=el('b',null,''+PRODUCTS.length);fdCount.appendChild(b1);
         fdCount.appendChild(document.createTextNode(' 件中 '));var b2=el('b',null,''+list.length);fdCount.appendChild(b2);
@@ -1062,17 +1259,19 @@
         if(!list.length){fdGrid.appendChild(el('div','fd-empty','条件に合う製品が見つかりませんでした。条件を変えてお試しください。'));return;}
         list.forEach(function(p){
           var card=el('div','fd-card');
-          var ph=el('div','ph photo');ph.style.backgroundImage="url('"+pImg(p.id)+"')";
-          ph.appendChild(el('span','jis',p.jis));
+          var ph=el('div','ph photo'+(isWireThumb(p.id)?' wire':''));
+          ph.style.backgroundImage="url('"+pThumb(p.id)+"')";
+          if(p.jis)ph.appendChild(el('span','jis',p.jis));
           if(p.stock)ph.appendChild(el('span','fd-stock '+(p.stock==='即納'?'s1':p.stock==='受注生産'?'s3':'s2'),p.stock));
           var bd=el('div','bd');
           bd.appendChild(el('div','en',p.en));
           bd.appendChild(el('h3',null,p.name));
           var tags=el('div','fd-tags');p.cat.forEach(function(c){tags.appendChild(el('span',null,c));});bd.appendChild(tags);
           var spec=el('div','fd-spec');
-          spec.appendChild(document.createTextNode('規格：'));spec.appendChild(el('b',null,p.jis));
-          spec.appendChild(document.createTextNode('　／　呼び：'));spec.appendChild(el('b',null,p.sizes.join(' / ')));
+          if(p.jis){spec.appendChild(document.createTextNode('規格：'));spec.appendChild(el('b',null,p.jis));spec.appendChild(document.createTextNode('　／　'));}
+          spec.appendChild(document.createTextNode('呼び：'));spec.appendChild(el('b',null,p.sizes.join(' / ')));
           bd.appendChild(spec);
+          if(p.shape){var b3=el('button','fd-3d','3Dで見る');b3.type='button';b3.onclick=(function(id){return function(e){e.stopPropagation();openViewer(id);};})(p.id);ph.appendChild(b3);}
           var acts=el('div','fd-acts');
           if(p.unit!=='none'){var bc=el('button','calc','数量を計算');bc.type='button';bc.onclick=(function(id){return function(){toCalc(id);};})(p.id);acts.appendChild(bc);}
           var ba=el('button','ask','問い合わせる');ba.type='button';ba.onclick=(function(nm){return function(){toContactProduct(nm);};})(p.name);acts.appendChild(ba);
@@ -1086,6 +1285,19 @@
       }
       refreshFinder=renderFinder;
       renderFinder();
+
+      // 線画サムネの用意ができたら一覧とトップの製品カードを描き直す（3Dモジュールから呼ばれる）
+      window.YH_applyThumbs=function(){
+        renderFinder();
+        var cards=document.querySelectorAll('.pcard .photo[data-thumb]');
+        for(var i=0;i<cards.length;i++){
+          var id=cards[i].getAttribute('data-thumb');
+          if(isWireThumb(id)){
+            cards[i].classList.add('wire');
+            cards[i].style.backgroundImage="url('"+pThumb(id)+"')";
+          }
+        }
+      };
     }
 
     // ---------- ② かんたん数量計算 ----------
@@ -1129,6 +1341,7 @@
         b.onclick=function(){toContactProduct(p.name);};calcRes.appendChild(b);}
     }
     function toCalc(id){var s=document.getElementById('calc-prod');if(!s)return;s.value=id;s.dispatchEvent(new Event('change'));var c=document.getElementById('calc');if(c)c.scrollIntoView({behavior:'smooth'});}
+    window.YH_toCalc=toCalc;   // 3Dビューアから既存の数量計算へ接続
 
     // ---------- 問い合わせフォーム連携 ----------
     function fillContact(typeText,message){
@@ -1146,16 +1359,16 @@
     var mapList=document.getElementById('map-list');
     if(mapList){
       var EXAMPLES=[
-        {area:'大分市', type:'道路側溝', title:'市道 排水側溝の布設', year:'2024', prod:'U字溝・側溝ふた', img:'field2'},
-        {area:'大分市', type:'宅地造成', title:'宅地造成の擁壁・境界', year:'2023', prod:'L型擁壁・境界ブロック', img:'steel7'},
-        {area:'大分市', type:'カルバート', title:'雨水排水のカルバート敷設', year:'2024', prod:'ボックスカルバート', img:'factory2'},
-        {area:'別府市', type:'河川護岸', title:'河川護岸ブロックの施工', year:'2024', prod:'護岸ブロック', img:'stone5'},
-        {area:'由布市', type:'擁壁・法面', title:'法面の大型擁壁', year:'2022', prod:'大型擁壁ブロック', img:'mountain6'},
-        {area:'臼杵市', type:'カルバート', title:'排水路ボックスカルバート', year:'2023', prod:'ボックスカルバート', img:'factory2'},
-        {area:'佐伯市', type:'河川護岸', title:'河川改修の護岸', year:'2024', prod:'大型積みブロック', img:'bridge4'},
-        {area:'中津市', type:'道路側溝', title:'幹線道路の側溝更新', year:'2022', prod:'L形側溝', img:'industry5'},
-        {area:'竹田市', type:'擁壁・法面', title:'農地の土留め擁壁', year:'2023', prod:'小型擁壁ブロック', img:'build9'},
-        {area:'日田市', type:'宅地造成', title:'区画整理の境界・擁壁', year:'2021', prod:'境界ブロック・擁壁', img:'gray3'}
+        {area:'大分市', type:'道路側溝', title:'市道 排水側溝の布設', year:'2024', prod:'U字溝・側溝ふた', img:'c_1'},
+        {area:'大分市', type:'宅地造成', title:'宅地造成の擁壁・境界', year:'2023', prod:'L型擁壁・境界ブロック', img:'c_2'},
+        {area:'大分市', type:'カルバート', title:'雨水排水のカルバート敷設', year:'2024', prod:'ボックスカルバート', img:'c_3'},
+        {area:'別府市', type:'河川護岸', title:'河川護岸ブロックの施工', year:'2024', prod:'護岸ブロック', img:'c_4'},
+        {area:'由布市', type:'擁壁・法面', title:'法面の大型擁壁', year:'2022', prod:'大型擁壁ブロック', img:'c_5'},
+        {area:'臼杵市', type:'カルバート', title:'排水路ボックスカルバート', year:'2023', prod:'ボックスカルバート', img:'c_6'},
+        {area:'佐伯市', type:'河川護岸', title:'河川改修の護岸', year:'2024', prod:'大型積みブロック', img:'c_7'},
+        {area:'中津市', type:'道路側溝', title:'幹線道路の側溝更新', year:'2022', prod:'L形側溝', img:'c_8'},
+        {area:'竹田市', type:'擁壁・法面', title:'農地の土留め擁壁', year:'2023', prod:'小型擁壁ブロック', img:'c_9'},
+        {area:'日田市', type:'宅地造成', title:'区画整理の境界・擁壁', year:'2021', prod:'境界ブロック・擁壁', img:'c_10'}
       ];
       var mState={area:'',type:''};
       var mapArea=document.getElementById('map-area'),mapType=document.getElementById('map-type'),mapCount=document.getElementById('map-count');
@@ -1175,7 +1388,7 @@
         if(!list.length){mapList.appendChild(el('div','map-empty','この条件の事例は、まだ登録がありません。'));return;}
         list.forEach(function(e){
           var it=el('div','map-item');
-          var ph=el('div','ph photo');ph.style.backgroundImage="url('https://picsum.photos/seed/"+e.img+"/600/400?grayscale')";it.appendChild(ph);
+          var ph=el('div','ph photo');ph.style.backgroundImage="url('"+imgUrl(e.img)+"')";it.appendChild(ph);
           var bd=el('div','bd');
           bd.appendChild(el('div','area',e.area+'・'+e.type));
           bd.appendChild(el('h4',null,e.title));
@@ -1381,5 +1594,490 @@
   x.onclick=close;
 })();
 </script>
+<!-- ===================== 制作中プレビューの表示（公開版ではないことを明示） ===================== -->
+<div id="prevbar" style="position:fixed;left:0;right:0;bottom:0;z-index:400;background:#1a1d21;color:#fff;
+     font-family:'Noto Sans JP',sans-serif;font-size:12px;line-height:1.6;padding:9px 46px 9px 16px;letter-spacing:.01em;">
+  <b style="background:#1c5fa8;padding:2px 8px;margin-right:9px;font-size:11px;">制作中プレビュー</b>
+  株式会社気持ち市場が制作中の画面です。<b>製品名・寸法・写真・施工事例はすべてサンプル</b>で、実際の製品仕様とは異なります。公開版ではありません。
+  <button type="button" aria-label="閉じる" onclick="document.getElementById('prevbar').style.display='none';"
+    style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:0;color:#fff;font-size:18px;cursor:pointer;line-height:1;">×</button>
+</div>
+
+<!-- ===================== 3D製品ビューア ===================== -->
+<div class="v3d-ov" id="v3d-ov" role="dialog" aria-modal="true" aria-label="3D製品ビューア">
+  <div class="v3d">
+    <div class="v3d-stage" id="v3d-stage">
+      <button class="v3d-close" id="v3d-close" type="button" aria-label="閉じる">×</button>
+      <div class="v3d-msg" id="v3d-msg">3Dを読み込んでいます…</div>
+      <div class="v3d-hint" id="v3d-hint" style="display:none;">ドラッグで回転／ホイールで拡大・縮小</div>
+    </div>
+    <div class="v3d-side" id="v3d-side"></div>
+  </div>
+</div>
+
+<script>
+/* 3Dビューアの入口。Three.js の読み込み前でも・読み込みに失敗しても必ず開く（製品ページが死なないため） */
+(function(){
+  var ov=document.getElementById('v3d-ov'), side=document.getElementById('v3d-side'),
+      stage=document.getElementById('v3d-stage'), msg=document.getElementById('v3d-msg'),
+      hint=document.getElementById('v3d-hint'), closeb=document.getElementById('v3d-close');
+  var cur=null, curSize=null, opt={rot:true,clip:false,dim:false,wire:true}, waitT=null;
+
+  function P(id){var a=window.YH_PRODUCTS||[];for(var i=0;i<a.length;i++){if(a[i].id===id)return a[i];}return null;}
+  function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e;}
+
+  function webglOK(){
+    try{var c=document.createElement('canvas');
+      return !!(window.WebGLRenderingContext&&(c.getContext('webgl2')||c.getContext('webgl')));
+    }catch(e){return false;}
+  }
+
+  /* 寸法表：形ごとに見せる項目を変える */
+  function dimRows(p,d){
+    var r=[];
+    switch(p.shape){
+      case 'u_ditch': r=[['内のり幅',d.inW],['内のり高さ',d.inH],['肉厚',d.t],['外幅（内幅＋肉厚×2）',d.inW+d.t*2],['長さ（定尺）',d.L]]; break;
+      case 'l_ditch': r=[['内のり幅',d.inW],['内のり高さ',d.inH],['肉厚',d.t],['立上り高さ',d.wallH],['長さ（定尺）',d.L]]; break;
+      case 'lid':     r=[['幅',d.W],['長さ',d.L],['厚み',d.t]]; break;
+      case 'box':     r=[['内空幅',d.inW],['内空高さ',d.inH],['肉厚',d.t],['外幅',d.inW+d.t*2],['長さ（定尺）',d.L]]; break;
+      case 'retaining': r=[['高さ',d.H],['底版の幅',d.base],['肉厚',d.t],['製品幅',d.L]]; break;
+      case 'trapezoid': r=[['下端の幅',d.frontW],['上端の幅',d.backW],['高さ',d.H],['奥行き',d.D]]; break;
+      case 'boxsolid':  r=[['幅',d.W],['高さ',d.H],['長さ',d.L]]; break;
+      default:          r=[['幅',d.W],['高さ',d.H],['長さ',d.L]];
+    }
+    return r;
+  }
+
+  function renderSide(p,size){
+    var d=p.dims[size];
+    side.innerHTML='';
+    side.appendChild(el('div','v3d-en',p.en));
+    side.appendChild(el('div','v3d-nm',p.name));
+    side.appendChild(el('span','v3d-sample','サンプル寸法（実データ差し替え前）'));
+
+    if(p.sizes.length>1){
+      side.appendChild(el('div','v3d-lab','呼び寸法をえらぶ'));
+      var chips=el('div','v3d-chips');
+      p.sizes.forEach(function(s){
+        var b=el('button','v3d-chip'+(s===size?' on':''),s);b.type='button';
+        b.onclick=function(){curSize=s;renderSide(p,s);if(window.YH3D&&window.YH3D.ready)window.YH3D.show(p,s,opt);};
+        chips.appendChild(b);
+      });
+      side.appendChild(chips);
+    }
+
+    side.appendChild(el('div','v3d-lab','見え方をかえる'));
+    var tg=el('div','v3d-chips');
+    [['rot','自動で回す'],['clip','断面で見る'],['dim','寸法を出す']].forEach(function(o){
+      var b=el('button','v3d-chip'+(opt[o[0]]?' on':''),o[1]);b.type='button';
+      b.onclick=function(){opt[o[0]]=!opt[o[0]];b.className='v3d-chip'+(opt[o[0]]?' on':'');
+        if(window.YH3D&&window.YH3D.ready)window.YH3D.setOpt(opt);};
+      tg.appendChild(b);
+    });
+    // 線画（設計図）⇔ 実物の質感 の切替
+    var bw=el('button','v3d-chip'+(opt.wire?'':' on'),'実物のように見る');bw.type='button';
+    bw.onclick=function(){opt.wire=!opt.wire;bw.className='v3d-chip'+(opt.wire?'':' on');
+      if(window.YH3D&&window.YH3D.ready)window.YH3D.setOpt(opt);};
+    tg.appendChild(bw);
+    side.appendChild(tg);
+
+    side.appendChild(el('div','v3d-lab','寸法（mm）'));
+    var tb=el('table','v3d-tbl');
+    dimRows(p,d).forEach(function(row){
+      var tr=document.createElement('tr');
+      var th=el('th',null,row[0]); var td=el('td',null,Number(row[1]).toLocaleString('ja-JP'));
+      tr.appendChild(th);tr.appendChild(td);tb.appendChild(tr);
+    });
+    side.appendChild(tb);
+
+    var acts=el('div','v3d-acts');
+    if(p.unit!=='none'){
+      var b1=el('button','p','この製品の数量を計算');b1.type='button';
+      b1.onclick=function(){close();if(window.YH_toCalc)window.YH_toCalc(p.id);};
+      acts.appendChild(b1);
+    }
+    var inC=window.YH_inCart&&window.YH_inCart(p.id);
+    var b2=el('button','s',inC?'見積りリストに追加済み':'見積りリストに追加');b2.type='button';b2.disabled=!!inC;
+    b2.onclick=function(){if(window.YH_addToCart){window.YH_addToCart(p);b2.textContent='見積りリストに追加済み';b2.disabled=true;}};
+    acts.appendChild(b2);
+    side.appendChild(acts);
+
+    side.appendChild(el('div','v3d-note',
+      'この3Dは形状を分かりやすくするためのイメージです。現在は代表的な規格値をもとにしたサンプル寸法で表示しており、実際の製品仕様とは異なる場合があります。正確な寸法・仕様はカタログ、またはお問い合わせでご確認ください。'));
+  }
+
+  function fallback(p){
+    msg.style.display='none';hint.style.display='none';
+    var old=stage.querySelector('.v3d-fb');if(old)old.remove();
+    var wrap=el('div','v3d-fb');
+    wrap.style.cssText='position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:24px;text-align:center;';
+    var im=el('div','v3d-fbimg');
+    im.style.cssText='width:100%;max-width:420px;aspect-ratio:3/2;background-size:cover;background-position:center;filter:grayscale(1);';
+    im.style.backgroundImage="url('"+(window.imgUrl?window.imgUrl(p.img):'')+"')";
+    wrap.appendChild(im);
+    var t=el('p',null,'お使いの環境では3D表示に対応していないため、写真と寸法表でご案内しています。');
+    t.style.cssText='margin-top:14px;font-size:12.5px;color:#5b636c;line-height:1.8;max-width:420px;';
+    wrap.appendChild(t);
+    stage.appendChild(wrap);
+  }
+
+  function open(id){
+    var p=P(id); if(!p||!p.shape) return;
+    cur=p; curSize=p.sizes[0];
+    ov.classList.add('on'); document.body.style.overflow='hidden';
+    renderSide(p,curSize);
+    var fb=stage.querySelector('.v3d-fb'); if(fb) fb.remove();
+
+    if(!webglOK()){ fallback(p); return; }
+
+    if(window.YH3D&&window.YH3D.ready){ start(); return; }
+
+    msg.style.display='flex'; msg.textContent='3Dを読み込んでいます…'; hint.style.display='none';
+    var t0=Date.now();
+    clearInterval(waitT);
+    waitT=setInterval(function(){
+      if(window.YH3D&&window.YH3D.ready){ clearInterval(waitT); start(); }
+      else if(Date.now()-t0>6000){ clearInterval(waitT); fallback(cur); }   // 6秒で諦めて写真に切替
+    },120);
+  }
+
+  function start(){
+    msg.style.display='none'; hint.style.display='block';
+    window.YH3D.mount(stage);
+    window.YH3D.show(cur,curSize,opt);
+  }
+
+  function close(){
+    clearInterval(waitT);
+    if(window.YH3D&&window.YH3D.ready) window.YH3D.unmount();   // 描画エンジンを破棄（開閉を繰り返しても重くならないように）
+    ov.classList.remove('on'); document.body.style.overflow='';
+    var fb=stage.querySelector('.v3d-fb'); if(fb) fb.remove();
+    cur=null;
+  }
+
+  closeb.addEventListener('click',close);
+  ov.addEventListener('click',function(e){ if(e.target===ov) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&ov.classList.contains('on')) close(); });
+
+  window.openViewer=open;
+  window.closeViewer=close;
+})();
+</script>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.185.1/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.185.1/examples/jsm/"
+  }
+}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+/* 製品の断面をつくり、長さ方向に押し出して立体にする。
+   コンクリート二次製品は「断面を押し出した形」がほとんどなので、寸法さえあれば写真なしで形が作れる。 */
+function shapeOf(kind, d){
+  var s = new THREE.Shape();
+  switch(kind){
+    case 'u_ditch': {                       // U字溝：底＋左右の壁
+      var oW=d.inW+d.t*2, oH=d.inH+d.t;
+      s.moveTo(0,0); s.lineTo(oW,0); s.lineTo(oW,oH); s.lineTo(oW-d.t,oH);
+      s.lineTo(oW-d.t,d.t); s.lineTo(d.t,d.t); s.lineTo(d.t,oH); s.lineTo(0,oH); s.closePath();
+      return s;
+    }
+    case 'l_ditch': {                       // L形側溝：片側だけ立ち上がる
+      var w=d.inW+d.t*2, h=d.inH+d.t, wh=d.wallH;
+      s.moveTo(0,0); s.lineTo(w,0); s.lineTo(w,wh); s.lineTo(w-d.t,wh);
+      s.lineTo(w-d.t,d.t); s.lineTo(d.t,d.t); s.lineTo(d.t,h); s.lineTo(0,h); s.closePath();
+      return s;
+    }
+    case 'box': {                           // ボックスカルバート：角筒（内側を穴で抜く）
+      var W=d.inW+d.t*2, H=d.inH+d.t*2;
+      s.moveTo(0,0); s.lineTo(W,0); s.lineTo(W,H); s.lineTo(0,H); s.closePath();
+      var h1=new THREE.Path();
+      h1.moveTo(d.t,d.t); h1.lineTo(d.t,d.t+d.inH); h1.lineTo(d.t+d.inW,d.t+d.inH); h1.lineTo(d.t+d.inW,d.t); h1.closePath();
+      s.holes.push(h1);
+      return s;
+    }
+    case 'retaining': {                     // L型擁壁：縦の壁＋底版
+      s.moveTo(0,0); s.lineTo(d.base,0); s.lineTo(d.base,d.t);
+      s.lineTo(d.t,d.t); s.lineTo(d.t,d.H); s.lineTo(0,d.H); s.closePath();
+      return s;
+    }
+    case 'trapezoid': {                     // 積みブロック・護岸：下が広い台形
+      var fw=d.frontW, bw=d.backW, H=d.H, off=(fw-bw)/2;
+      s.moveTo(0,0); s.lineTo(fw,0); s.lineTo(fw-off,H); s.lineTo(off,H); s.closePath();
+      return s;
+    }
+    case 'lid': {                           // ふた：上から見た面（幅×長さ）を「厚み」方向に押し出す。
+      s.moveTo(0,0); s.lineTo(d.W,0); s.lineTo(d.W,d.L); s.lineTo(0,d.L); s.closePath();
+      return s;                             // ※こうしないとスリットが上下に貫通しない（横穴になってしまう）
+    }
+    default: {                              // 境界ブロック・特注：直方体
+      var w2=d.W, h2=d.H;
+      s.moveTo(0,0); s.lineTo(w2,0); s.lineTo(w2,h2); s.lineTo(0,h2); s.closePath();
+      return s;
+    }
+  }
+}
+function depthOf(kind,d){
+  if(kind==='trapezoid') return d.D;
+  if(kind==='lid') return d.t;            // ふただけは「厚み」方向に押し出す
+  return d.L;
+}
+function buildGeometry(p,d){
+  var kind=p.shape;
+  var geo;
+  if(kind==='lid'){
+    var sh=shapeOf('lid',d);
+    if(p.grating){
+      // スリットを4本、上下に貫通させる（上から水が落ちる向き）
+      var n=4, sw=d.W*0.09, gap=(d.W-sw*n)/(n+1), m=d.L*0.14;
+      for(var i=0;i<n;i++){
+        var x=gap*(i+1)+sw*i;
+        var hp=new THREE.Path();
+        hp.moveTo(x,m); hp.lineTo(x+sw,m); hp.lineTo(x+sw,d.L-m); hp.lineTo(x,d.L-m); hp.closePath();
+        sh.holes.push(hp);
+      }
+    }
+    geo=new THREE.ExtrudeGeometry(sh,{depth:d.t,bevelEnabled:false});
+    geo.rotateX(-Math.PI/2);              // 板を寝かせる（実物と同じ向きに）
+  } else if(kind==='custom'){
+    geo=new THREE.ExtrudeGeometry(shapeOf(kind,d),{depth:d.L,bevelEnabled:true,bevelThickness:12,bevelSize:12,bevelSegments:1});
+  } else {
+    geo=new THREE.ExtrudeGeometry(shapeOf(kind,d),{depth:depthOf(kind,d),bevelEnabled:false});
+  }
+  geo.center();
+  geo.computeVertexNormals();
+  return geo;
+}
+
+/* mm の数値を空中に浮かべる小さな板 */
+function makeLabel(text, size){
+  var c=document.createElement('canvas'), s=2; c.width=256*s; c.height=72*s;
+  var x=c.getContext('2d'); x.scale(s,s);
+  x.fillStyle='rgba(255,255,255,.94)'; x.fillRect(0,0,256,72);
+  x.strokeStyle='#1c5fa8'; x.lineWidth=3; x.strokeRect(1.5,1.5,253,69);
+  x.fillStyle='#1a1d21'; x.font='bold 34px "Noto Sans JP",sans-serif'; x.textAlign='center'; x.textBaseline='middle';
+  x.fillText(text,128,38);
+  var tex=new THREE.CanvasTexture(c); tex.colorSpace=THREE.SRGBColorSpace;
+  var sp=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,depthTest:false,transparent:true}));
+  sp.scale.set(size, size*0.28, 1);
+  return sp;
+}
+
+var R={ ready:false };
+var renderer=null, scene=null, camera=null, controls=null, mesh=null, edges=null, dimGroup=null,
+    faceMat=null, edgeMat=null, clipPlane=null, raf=0, host=null, ro=null;
+
+/* 設計図風の線画。
+   面をほぼ白で「伏せて」奥の線を隠し、見えている稜線だけを紺の線で描く（＝隠線処理）。
+   コンクリート製品は中身の詰まった塊なので、鉄塔のように線を透かすと形が読めなくなる。図面と同じ「見えている線だけ」が正しい。 */
+var WIRE_FACE=0xffffff, SOLID_FACE=0xbfbeb9, EDGE_COLOR=0x0e2a47;
+function makeFaceMat(){
+  return new THREE.MeshLambertMaterial({
+    color:WIRE_FACE, side:THREE.DoubleSide,
+    polygonOffset:true, polygonOffsetFactor:1, polygonOffsetUnits:1   // 線が面にめり込んでチラつくのを防ぐ
+  });
+}
+function makeEdgeLines(geo, m){
+  // しきい値15°＝平面を三角形に割った内部の線を拾わない（1°だと図が線だらけになる）
+  return new THREE.LineSegments(new THREE.EdgesGeometry(geo, 15), m);
+}
+/* 全方向から均一に照らして面をほぼ白に飛ばし、方向光はごく弱く当てて面ごとの差だけ残す。
+   こうすると「白い面＋濃い輪郭」になり、線が主役の図面になる（暗いと灰色の塊に見えてしまう） */
+function addLights(sc){
+  sc.add(new THREE.HemisphereLight(0xffffff, 0xf2f4f6, 2.15));
+  var d1=new THREE.DirectionalLight(0xffffff, 0.30); d1.position.set(2.5, 4.0, 3.0);  sc.add(d1);
+  var d2=new THREE.DirectionalLight(0xffffff, 0.12); d2.position.set(-3.0, 2.0, -2.5); sc.add(d2);
+}
+
+R.mount=function(el){
+  if(renderer){ R.unmount(); }
+  host=el;
+  renderer=new THREE.WebGLRenderer({antialias:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+  renderer.setSize(el.clientWidth, el.clientHeight);
+  renderer.localClippingEnabled=true;
+  el.appendChild(renderer.domElement);
+
+  scene=new THREE.Scene();
+  scene.background=new THREE.Color(0xffffff);          // 図面台のような白地
+
+  camera=new THREE.PerspectiveCamera(38, el.clientWidth/el.clientHeight, 0.02, 100);
+  addLights(scene);
+
+  clipPlane=new THREE.Plane(new THREE.Vector3(0,0,-1), 0);
+  edgeMat=new THREE.LineBasicMaterial({color:EDGE_COLOR});
+  faceMat=makeFaceMat();
+
+  controls=new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping=true; controls.dampingFactor=0.08;
+  controls.autoRotateSpeed=1.6;
+  controls.minDistance=0.4; controls.maxDistance=14;
+  controls.maxPolarAngle=Math.PI*0.92;
+
+  ro=new ResizeObserver(function(){
+    if(!renderer||!host.clientWidth) return;
+    camera.aspect=host.clientWidth/host.clientHeight; camera.updateProjectionMatrix();
+    renderer.setSize(host.clientWidth, host.clientHeight);
+  });
+  ro.observe(el);
+
+  (function loop(){ raf=requestAnimationFrame(loop); if(controls)controls.update(); if(renderer)renderer.render(scene,camera); })();
+};
+
+R.show=function(p, size, opt){
+  if(!scene) return;
+  if(mesh){ scene.remove(mesh); mesh.geometry.dispose(); mesh=null; }
+  if(edges){ scene.remove(edges); edges.geometry.dispose(); edges=null; }
+  if(dimGroup){ scene.remove(dimGroup); dimGroup=null; }
+
+  var d=p.dims[size];
+  var geo=buildGeometry(p,d);
+  mesh=new THREE.Mesh(geo, faceMat);
+  mesh.scale.setScalar(0.001);                 // mm → m
+  scene.add(mesh);
+  edges=makeEdgeLines(geo, edgeMat);
+  edges.scale.setScalar(0.001);
+  scene.add(edges);
+
+  geo.computeBoundingBox();
+  var bb=geo.boundingBox, sz=new THREE.Vector3(); bb.getSize(sz);
+  var W=sz.x/1000, H=sz.y/1000, L=sz.z/1000;
+  var maxd=Math.max(W,H,L);
+
+  // 図面の方眼（落ち影のかわりに、置かれている位置を示す）
+  var og=scene.getObjectByName('grid'); if(og) scene.remove(og);
+  var grid=new THREE.GridHelper(maxd*4, 16, 0xccd3da, 0xe8ebee);
+  grid.name='grid'; grid.position.y=-H/2-0.001; scene.add(grid);
+
+  // 寸法線（外形の 幅・高さ・長さ）。図面らしく、両端に補助線（引出線）を立てる
+  dimGroup=new THREE.Group(); dimGroup.name='dims';
+  var off=maxd*0.09, tick=maxd*0.035, V=THREE.Vector3;
+  var lm=new THREE.LineBasicMaterial({color:0x1c5fa8});
+  function line(a,b){ return new THREE.Line(new THREE.BufferGeometry().setFromPoints([a,b]), lm); }
+  function dim(a,b,tickDir){
+    dimGroup.add(line(a,b));                                   // 寸法線
+    var t=tickDir.clone().multiplyScalar(tick);
+    dimGroup.add(line(a.clone().sub(t), a.clone().add(t)));    // 端の目盛り
+    dimGroup.add(line(b.clone().sub(t), b.clone().add(t)));
+  }
+  // 幅（手前の下）
+  dim(new V(-W/2,-H/2-off,L/2), new V(W/2,-H/2-off,L/2), new V(0,1,0));
+  // 高さ（左手前）
+  dim(new V(-W/2-off,-H/2,L/2), new V(-W/2-off,H/2,L/2), new V(1,0,0));
+  // 長さ（右下）
+  dim(new V(W/2+off,-H/2,-L/2), new V(W/2+off,-H/2,L/2), new V(0,1,0));
+
+  var ls=maxd*0.30;
+  var l1=makeLabel(Math.round(sz.x)+' mm', ls); l1.position.set(0,-H/2-off-ls*0.22,L/2); dimGroup.add(l1);
+  var l2=makeLabel(Math.round(sz.y)+' mm', ls); l2.position.set(-W/2-off-ls*0.55,0,L/2);  dimGroup.add(l2);
+  var l3=makeLabel(Math.round(sz.z)+' mm', ls); l3.position.set(W/2+off+ls*0.55,-H/2,0);  dimGroup.add(l3);
+  scene.add(dimGroup);
+
+  // カメラを製品の大きさに合わせる
+  var dist=maxd/(2*Math.tan(THREE.MathUtils.degToRad(camera.fov)/2))*1.9;
+  camera.position.set(dist*0.72, dist*0.52, dist*0.82);
+  controls.target.set(0,0,0);
+  controls.minDistance=maxd*0.5; controls.maxDistance=maxd*7;
+  controls.update();
+
+  R.setOpt(opt);
+};
+
+R.setOpt=function(o){
+  if(!controls) return;
+  controls.autoRotate=!!o.rot;
+
+  var wire = (o.wire!==false);                          // 既定は線画
+  faceMat.color.set(wire ? WIRE_FACE : SOLID_FACE);     // 実物モードはコンクリート色
+  if(edges) edges.visible=wire;
+
+  // 断面は「面」と「線」の両方を切る。片方だけだと切り口から線がはみ出して破綻する
+  var planes = o.clip ? [clipPlane] : [];
+  faceMat.clippingPlanes=planes; edgeMat.clippingPlanes=planes;
+  faceMat.needsUpdate=true; edgeMat.needsUpdate=true;
+
+  if(dimGroup) dimGroup.visible=!!o.dim;
+};
+
+R.unmount=function(){
+  cancelAnimationFrame(raf);
+  if(ro){ ro.disconnect(); ro=null; }
+  if(controls){ controls.dispose(); controls=null; }
+  if(mesh){ mesh.geometry.dispose(); mesh=null; }
+  if(edges){ edges.geometry.dispose(); edges=null; }
+  if(dimGroup){ dimGroup.traverse(function(o){ if(o.material&&o.material.map)o.material.map.dispose(); if(o.material)o.material.dispose(); if(o.geometry)o.geometry.dispose(); }); dimGroup=null; }
+  if(faceMat){ faceMat.dispose(); faceMat=null; }
+  if(edgeMat){ edgeMat.dispose(); edgeMat=null; }
+  if(renderer){
+    renderer.dispose();
+    // dispose() だけではブラウザのWebGL領域が残り、開閉を繰り返すと上限に達して古い描画が壊れる。
+    // 明示的にコンテキストを手放す。
+    if(renderer.forceContextLoss) renderer.forceContextLoss();
+    if(renderer.domElement&&renderer.domElement.parentNode) renderer.domElement.parentNode.removeChild(renderer.domElement);
+    renderer=null;
+  }
+  scene=null; camera=null; host=null;
+};
+
+/* 製品一覧のサムネイルを線画で描き出す（アイソメ・背景透過のPNG）。
+   カードごとに3Dを動かすとWebGLの枠を使い切ってブラウザが壊れるため、
+   描画エンジンは「1つだけ」作り、14製品を順に描いて画像に焼き、最後に解放する。 */
+R.thumbs=function(products, w, h){
+  w=w||400; h=h||290;
+  var out={};
+  var rn=new THREE.WebGLRenderer({antialias:true, alpha:true, preserveDrawingBuffer:true});
+  // 等倍で描く。大きく描いて縮小すると1pxの線が潰れて「線画」に見えなくなるため
+  rn.setPixelRatio(1); rn.setSize(w,h); rn.setClearAlpha(0);
+
+  var sc=new THREE.Scene(); addLights(sc);
+  var fm=makeFaceMat(), em=new THREE.LineBasicMaterial({color:EDGE_COLOR});
+  var cam=new THREE.OrthographicCamera(-1,1,1,-1,0.01,200);   // 平行投影＝アイソメ図らしくなる
+
+  products.forEach(function(p){
+    if(!p.shape) return;
+    var geo=buildGeometry(p, p.dims[p.sizes[0]]);
+    geo.computeBoundingBox();
+    var sz=new THREE.Vector3(); geo.boundingBox.getSize(sz);
+
+    var m=new THREE.Mesh(geo, fm); m.scale.setScalar(0.001);
+    var ls=makeEdgeLines(geo, em); ls.scale.setScalar(0.001);
+    sc.add(m); sc.add(ls);
+
+    var maxd=Math.max(sz.x, sz.y, sz.z)/1000, half=maxd*0.72, asp=w/h;
+    cam.left=-half*asp; cam.right=half*asp; cam.top=half; cam.bottom=-half;
+    cam.position.set(maxd*2, maxd*1.6, maxd*2);              // 斜め上から（三和の絵と同じ向き）
+    cam.lookAt(0,0,0);
+    cam.updateProjectionMatrix();
+
+    rn.render(sc, cam);
+    out[p.id]=rn.domElement.toDataURL('image/png');
+
+    sc.remove(m); sc.remove(ls);
+    geo.dispose(); ls.geometry.dispose();
+  });
+
+  fm.dispose(); em.dispose();
+  rn.dispose(); if(rn.forceContextLoss) rn.forceContextLoss();
+  return out;
+};
+
+R.ready=true;
+window.YH3D=R;
+
+/* 読み込めたら、製品一覧のサムネイルを線画に差し替える。
+   3Dが使えない環境ではここが例外になるだけで、写真表示のまま何も壊れない。 */
+try{
+  if(window.YH_PRODUCTS && window.YH_PRODUCTS.length){
+    window.YH_THUMBS = R.thumbs(window.YH_PRODUCTS);
+    if(window.YH_applyThumbs) window.YH_applyThumbs();
+  }
+}catch(e){ /* 写真のまま continue */ }
+</script>
+
 </body>
 </html>
